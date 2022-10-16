@@ -1,0 +1,29 @@
+body {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: minmax(50px, auto);
+    margin: 0;
+}
+
+header {
+    grid-column: span 4;
+    background-color: #202020;
+}
+
+nav {
+    grid-column: span 4;
+    background-color: #323232;
+}
+
+aside {
+    background-color: #e6e6e6;
+}
+
+main {
+    grid-column: span 3;
+}
+
+footer {
+    grid-column: span 4;
+    background-color: #202020;
+}
