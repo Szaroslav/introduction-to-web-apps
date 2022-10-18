@@ -1,0 +1,97 @@
+body {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+header {
+    padding: 2rem;
+    background-color: #242424;
+}
+
+header p {
+    padding: 1.5rem;
+    background-color: #323232;
+}
+
+nav {
+    height: 72px;
+    background-color: rgb(241, 241, 241);
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+article {
+    background-color: white;
+}
+
+aside:first-of-type {
+    background-color: #323232;
+}
+
+aside:last-child {
+    background-color: #3f3f3f;
+}
+
+footer {
+    height: 128px;
+    background-color: #242424;
+}
+
+@media only screen and (max-width: 480px) {
+    header p {
+        opacity: 0;
+    }
+
+    main {
+        flex-direction: column;
+    }
+
+    main {
+        height: 400px;
+    }
+}
+
+@media only screen and (min-width: 481px) and (max-width: 1024px) {
+    body {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    article, aside:first-of-type {
+        height: 400px;
+    }
+
+    aside:last-of-type {
+        height: 200px;
+        width: 100%;
+    }
+
+    article {
+        width: 70%;
+    }
+    
+    aside:first-of-type {
+        width: 30%;
+    }
+}
+
+@media only screen and (min-width: 1025px) {
+    main > * {
+        height: 400px;
+    }
+
+    article {
+        width: 55%;
+    }
+    
+    aside:first-of-type {
+        width: 25%;
+    }
+
+    aside:last-of-type {
+        width: 20%;
+    }
+}

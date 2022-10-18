@@ -9,147 +9,37 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap">
+        <link rel="stylesheet" href="../../basis.css">
         <link rel="stylesheet" href="main.css">
     </head>
     <body>
-        <main>
-            <div class="gallery-card grid-item">
-                <img
-                    src="./images/gallery-1-480w.jpg"
-                    srcset="./images/gallery-1-480w.jpg 480w, ./images/gallery-1-360w.jpg 360w, ./images/gallery-1-280w.jpg 280w"
-                    sizes="(max-width: 480px) 360px, (max-width: 1024px) 280px, (max-width: 1280px) 360px, 480px"
-                    alt="Leaves"
-                >
-                <div class="gallery-content">
-                    <p class="gallery-heading">Miasto 1</p>
-                    <p class="gallery-caption">Opis 1</p>
-                    <p class="gallery-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum fuga explicabo praesentium temporibus ea enim, nulla ex exercitationem quia recusandae expedita quasi suscipit doloremque deleniti.</p>
-                    <div class="gallery-bottom-content">
-                        <a href="#" class="gallery-button">Czytaj dalej</a>
-                        <p class="gallery-likes">666 polubień</p>
-                        <p class="gallery-comments">33 komentarzy</p>
-                    </div>
-                </div>
+        <nav>
+            <div class="nav-wrapper">
+                <a href="#" class="nav-logo logo"><span>Brand</span>name</a>
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item has-sublist">
+                        <a href="#" class="nav-link">Menu</a>
+                        <ul class="nav-sublist">
+                            <li class="nav-subitem"><a href="#" class="nav-sublink">Wow</a></li>
+                            <li class="nav-subitem"><a href="#" class="nav-sublink">Mega</a></li>
+                            <li class="nav-subitem"><a href="#" class="nav-sublink">Wow</a></li>
+                            <li class="nav-subitem"><a href="#" class="nav-sublink">I love WDAI :)</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">About</a>
+                    </li>
+                </ul>
+                <a href="#" class="btn btn-border">Log in</a>
+                <a href="#" class="btn btn-full">Sign up</a>
             </div>
-            <div class="gallery-card grid-item">
-                <img
-                    src="./images/gallery-2-480w.jpg"
-                    srcset="./images/gallery-2-480w.jpg 480w, ./images/gallery-2-360w.jpg 360w, ./images/gallery-2-280w.jpg 280w"
-                    sizes="(max-width: 480px) 360px, (max-width: 1024px) 280px, (max-width: 1280px) 360px, 480px"
-                    alt="Landscape"
-                >
-                <div class="gallery-content">
-                    <p class="gallery-heading">Miasto 2</p>
-                    <p class="gallery-caption">Opis 2</p>
-                    <p class="gallery-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum fuga explicabo praesentium temporibus ea enim, nulla ex exercitationem quia recusandae expedita quasi suscipit doloremque deleniti.</p>
-                    <div class="gallery-bottom-content">
-                        <a href="#" class="gallery-button">Czytaj dalej</a>
-                        <p class="gallery-likes">666 polubień</p>
-                        <p class="gallery-comments">33 komentarzy</p>
-                    </div>
-                </div>
-            </div>
-            <div class="gallery-card grid-item">
-                <img
-                    src="./images/gallery-3-480w.jpg"
-                    srcset="./images/gallery-3-480w.jpg 480w, ./images/gallery-3-360w.jpg 360w, ./images/gallery-3-280w.jpg 280w"
-                    sizes="(max-width: 480px) 360px, (max-width: 1024px) 280px, (max-width: 1280px) 360px, 480px"
-                    alt="Leaves"
-                >
-                <div class="gallery-content">
-                    <p class="gallery-heading">Miasto 3</p>
-                    <p class="gallery-caption">Opis 3</p>
-                    <p class="gallery-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum fuga explicabo praesentium temporibus ea enim, nulla ex exercitationem quia recusandae expedita quasi suscipit doloremque deleniti.</p>
-                    <div class="gallery-bottom-content">
-                        <a href="#" class="gallery-button">Czytaj dalej</a>
-                        <p class="gallery-likes">666 polubień</p>
-                        <p class="gallery-comments">33 komentarzy</p>
-                    </div>
-                </div>
-            </div>
-            <div class="gallery-card grid-item">
-                <img
-                    src="./images/gallery-4-480w.jpg"
-                    srcset="./images/gallery-4-480w.jpg 480w, ./images/gallery-4-360w.jpg 360w, ./images/gallery-4-280w.jpg 280w"
-                    sizes="(max-width: 480px) 360px, (max-width: 1024px) 280px, (max-width: 1280px) 360px, 480px"
-                    alt="Park"
-                >
-                <div class="gallery-content">
-                    <p class="gallery-heading">Miasto 4</p>
-                    <p class="gallery-caption">Opis 4</p>
-                    <p class="gallery-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum fuga explicabo praesentium temporibus ea enim, nulla ex exercitationem quia recusandae expedita quasi suscipit doloremque deleniti.</p>
-                    <div class="gallery-bottom-content">
-                        <a href="#" class="gallery-button">Czytaj dalej</a>
-                        <p class="gallery-likes">666 polubień</p>
-                        <p class="gallery-comments">33 komentarzy</p>
-                    </div>
-                </div>
-            </div>
-            <div class="gallery-card grid-item">
-                <img src="./images/gallery-5-480w.jpg" alt="Waterfall">
-                <div class="gallery-content">
-                    <p class="gallery-heading">Miasto 5</p>
-                    <p class="gallery-caption">Opis 5</p>
-                    <p class="gallery-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum fuga explicabo praesentium temporibus ea enim, nulla ex exercitationem quia recusandae expedita quasi suscipit doloremque deleniti.</p>
-                    <div class="gallery-bottom-content">
-                        <a href="#" class="gallery-button">Czytaj dalej</a>
-                        <p class="gallery-likes">666 polubień</p>
-                        <p class="gallery-comments">33 komentarzy</p>
-                    </div>
-                </div>
-            </div>
-            <div class="gallery-card grid-item">
-                <img src="./images/gallery-6-480w.jpg" alt="Sea">
-                <div class="gallery-content">
-                    <p class="gallery-heading">Miasto 6</p>
-                    <p class="gallery-caption">Opis 6</p>
-                    <p class="gallery-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum fuga explicabo praesentium temporibus ea enim, nulla ex exercitationem quia recusandae expedita quasi suscipit doloremque deleniti.</p>
-                    <div class="gallery-bottom-content">
-                        <a href="#" class="gallery-button">Czytaj dalej</a>
-                        <p class="gallery-likes">666 polubień</p>
-                        <p class="gallery-comments">33 komentarzy</p>
-                    </div>
-                </div>
-            </div>
-            <div class="gallery-card grid-item">
-                <img src="./images/gallery-7-480w.jpg" alt="Flora">
-                <div class="gallery-content">
-                    <p class="gallery-heading">Miasto 7</p>
-                    <p class="gallery-caption">Opis 7</p>
-                    <p class="gallery-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum fuga explicabo praesentium temporibus ea enim, nulla ex exercitationem quia recusandae expedita quasi suscipit doloremque deleniti.</p>
-                    <div class="gallery-bottom-content">
-                        <a href="#" class="gallery-button">Czytaj dalej</a>
-                        <p class="gallery-likes">666 polubień</p>
-                        <p class="gallery-comments">33 komentarzy</p>
-                    </div>
-                </div>
-            </div>
-            <div class="gallery-card grid-item">
-                <img src="./images/gallery-8-480w.jpg" alt="Leaves">
-                <div class="gallery-content">
-                    <p class="gallery-heading">Miasto 8</p>
-                    <p class="gallery-caption">Opis 8</p>
-                    <p class="gallery-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum fuga explicabo praesentium temporibus ea enim, nulla ex exercitationem quia recusandae expedita quasi suscipit doloremque deleniti.</p>
-                    <div class="gallery-bottom-content">
-                        <a href="#" class="gallery-button">Czytaj dalej</a>
-                        <p class="gallery-likes">666 polubień</p>
-                        <p class="gallery-comments">33 komentarzy</p>
-                    </div>
-                </div>
-            </div>
-            <div class="gallery-card grid-item">
-                <img src="./images/gallery-9-480w.jpg" alt="Flora">
-                <div class="gallery-content">
-                    <p class="gallery-heading">Miasto 9</p>
-                    <p class="gallery-caption">Opis 9</p>
-                    <p class="gallery-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum fuga explicabo praesentium temporibus ea enim, nulla ex exercitationem quia recusandae expedita quasi suscipit doloremque deleniti.</p>
-                    <div class="gallery-bottom-content">
-                        <a href="#" class="gallery-button">Czytaj dalej</a>
-                        <p class="gallery-likes">666 polubień</p>
-                        <p class="gallery-comments">33 komentarzy</p>
-                    </div>
-                </div>
-            </div>
-        </main>
+        </nav>
+        <header></header>
     </body>
 </html>
