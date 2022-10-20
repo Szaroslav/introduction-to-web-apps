@@ -28,7 +28,7 @@ main {
     padding-right: .75rem;
     color: #213760;
     text-transform: uppercase;
-    transition: width .3s ease;
+    transition: width .3s ease .15s;
 }
 
 .nav-item {
@@ -101,10 +101,6 @@ main {
         width: 124px;
     }
 
-    .nav-anchor {
-        width: 70px;
-    }
-
     .nav-text {
         opacity: 0;
         visibility: hidden;
@@ -118,5 +114,9 @@ main {
 @media (min-width: 1025px) {
     .nav-anchor {
         width: 214px;
+    }
+
+    .nav-text {
+        transition-delay: .2s;
     }
 }

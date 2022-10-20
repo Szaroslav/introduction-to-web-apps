@@ -1,168 +1,119 @@
+:root {
+    --main-color: #894be0;
+    --main-color-dark: #312435;
+    --main-color-light-dark: #46324d;
+    --viewport-padding: 1rem;
+}
+
 body {
-    background-color: #f5f5f5;
+    min-height: 1600px;
+    background-color: var(--main-color-light-dark);
 }
 
-nav {
+.app {
     display: flex;
-    padding: 1.5rem;
-    color: white;
-    background-color: #242424;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-}
-
-.nav-list {
-    list-style-type: none;
-}
-
-.nav-list .nav-link {
+    height: 100vh;
+    min-height: 500px;
+    background-color: var(--main-color-dark);
+    justify-content: center;
     position: relative;
 }
 
-.nav-icon {
-    display: block;
-    width: 32px;
-    height: 25px;
-    position: relative;
+.user-preview, .sidebar, .mainbar i {
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, .1);
 }
 
-.nav-icon > .line {
-    width: 100%;
-    height: 3px;
-    background-color: white;
+.user-preview {
+    background: url('images/popcorn.jpg') center / cover;
+    border-radius: .5rem;
     position: absolute;
-    left: 0;
-    transition: transform .3s ease;
+    top: var(--viewport-padding);
+    left: var(--viewport-padding);
 }
 
-.nav-icon > .line:nth-child(1) {
-    top: 0;
-    transform-origin: top left;
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    padding: .75rem .5rem;
+    color: var(--main-color);
+    background-color: white;
+    border-radius: 100rem;
+    position: fixed;
+    bottom: var(--viewport-padding);
+    left: var(--viewport-padding);
 }
 
-.nav-icon > .line:nth-child(2) {
-    top: 11px;
-    transform-origin: right;
+.sidebar i {
+    display: block;
+    padding: .25rem 0;
+    cursor: pointer;
+    transition: color .25s ease;
 }
 
-.nav-icon > .line:nth-child(3) {
-    bottom: 0;
-    transform-origin: bottom left;
+.sidebar i:hover {
+    color: var(--main-color-light-dark);
 }
 
-@media screen and (max-width: 800px) {
-    .nav-list {
-        display: flex;
-        opacity: 0;
-        visibility: hidden;
+main {
+    background: url('images/mountains-and-doggo.jpg') center / cover;
+}
+
+.mainbar {
+    display: flex;
+    gap: .5rem;
+    color: var(--main-color);
+    position: fixed;
+    bottom: var(--viewport-padding);
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.mainbar i {
+    display: flex;
+    width: 2.5rem;
+    height: 2.5rem;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 100%;
+    cursor: pointer;
+    transition: background-color .25s ease;
+}
+
+.mainbar i:hover {
+    background-color: var(--main-color-dark);
+}
+
+.mainbar .fa-phone-slash {
+    color: white;
+    background-color: #e93449;
+}
+
+.mainbar .fa-phone-slash:hover {
+    background-color: #f44d61;
+}
+
+@media (max-width: 480px) {
+    .user-preview {
+        width: 96px;
+        height: 170px;
+    }
+
+    main {
         width: 100%;
-        height: calc(100vh - 82px);
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        font-size: 1.25rem;
-        background-color: #323232;
-        gap: 1.5rem;
-        position: absolute;
-        top: 82px;
-        left: 0;
-        transition: opacity .3s ease, visibility .3s ease;
-    }
-
-    .nav-list .nav-item {
-        text-align: center;
-    }
-    
-    .nav-list .nav-link {
-        display: inline-block;
-        padding: 1rem;
-        opacity: 0;
-        visibility: hidden;
-        transform: translateY(-.5rem);
-        transition: opacity .25s ease, visibility .25s ease, transform .25s ease;
-        transition-delay: 0;
-    }
-
-    .nav-list.open .nav-link {
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0);
-    }
-
-    .nav-list.open .nav-link.item-1 {
-        transition-delay: .4s;
-    }
-
-    .nav-list.open .nav-link.item-2 {
-        transition-delay: .5s;
-    }
-
-    .nav-list.open .nav-link.item-3 {
-        transition-delay: .6s;
-    }
-
-    .nav-list.open .nav-link.item-4 {
-        transition-delay: .7s;
-    }
-
-    .nav-list.open .nav-link.item-5 {
-        transition-delay: .8s;
-    }
-    
-    .nav-list.open {
-        opacity: 1;
-        visibility: visible;
-    }
-
-    .nav-button.clicked .line:nth-child(1) {
-        transform: rotate(45deg) translate(4px, -4px);
-    }
-
-    .nav-button.clicked .line:nth-child(2) {
-        transform: scaleX(0);
-    }
-
-    .nav-button.clicked .line:nth-child(3) {
-        transform: rotate(-45deg) translate(4px, 4px);
     }
 }
 
-@media screen and (min-width: 801px) {
-    .nav-list {
-        display: flex;
-        gap: 1rem;
-    }
-    
-    .nav-list .nav-link {
-        display: block;
-        padding: .5rem;
+@media (min-width: 481px) {
+    .user-preview {
+        width: 128px;
+        height: 200px;
+        background-image: url('images/popcorn-2x.jpg');
     }
 
-    .nav-list .nav-link::after {
-        content: '';
-        display: block;
-        width: 100%;
-        height: 2px;
-        background-color: white;
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        transform: scaleX(0);
-        transition: transform .25s ease;
-    }
-
-    .nav-list .nav-link:hover::after {
-        transform: scaleX(1);
-    }
-
-    .nav-button {
-        display: none;
+    main {
+        width: 40%;
+        min-width: 420px;
+        background-image: url('images/mountains-and-doggo-2x.jpg');
     }
 }
