@@ -171,9 +171,16 @@ header::before {
 }
 
 @media (max-width: 768px) {
-    
-}
+    html {
+        font-size: 13px;
+    }
 
-@media (max-width: 480px) {
-    
+    .nav-wrapper {
+        width: 100%;
+        padding: 0 .5rem;
+    }
+
+    .nav-list {
+        gap: 0;
+    }
 }
