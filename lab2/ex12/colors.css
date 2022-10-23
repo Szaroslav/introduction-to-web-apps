@@ -1,0 +1,172 @@
+:root {
+    --main-color-1:         #3795e7;
+    --main-color-dark-1:    #2e42c9;
+    --main-color-2:         #eb3444;
+    --main-color-dark-2:    #b3162b;
+    --main-color-3:         #adeb39;
+    --main-color-dark-3:    #61b31e;
+    --main-color-4:         #e97d3e;
+    --main-color-dark-4:    #b35415;
+    --main-color-5:         #424242;
+    --main-color-dark-5:    #242424;
+    --text-color-1:         #303030;
+    --text-color-2:         #444444;
+    --text-color-3:         #585858;
+    --product-preview-padding:  2rem;
+    --color-input-padding:      482px;
+}
+
+.product-card > input.blue:checked ~ .product-card-wrapper {
+    --main-color:           var(--main-color-1);
+    --main-color-dark:      var(--main-color-dark-1);
+    --product-url:          url('./images/shoe-blue.png');
+}
+
+.product-card > input.red:checked ~ .product-card-wrapper {
+    --main-color:           var(--main-color-2);
+    --main-color-dark:      var(--main-color-dark-2);
+    --product-url:          url('./images/shoe-red.png');
+}
+
+.product-card > input.green:checked ~ .product-card-wrapper {
+    --main-color:           var(--main-color-3);
+    --main-color-dark:      var(--main-color-dark-3);
+    --product-url:          url('./images/shoe-green.png');
+}
+
+.product-card > input.orange:checked ~ .product-card-wrapper {
+    --main-color:           var(--main-color-4);
+    --main-color-dark:      var(--main-color-dark-4);
+    --product-url:          url('./images/shoe-orange.png');
+}
+
+.product-card > input.darkgrey:checked ~ .product-card-wrapper {
+    --main-color:           var(--main-color-5);
+    --main-color-dark:      var(--main-color-dark-5);
+    --product-url:          url('./images/shoe-darkgrey.png');
+}
+
+.product-card > input.blue:hover ~ .product-card-wrapper {
+    --main-color:           var(--main-color-1);
+    --main-color-dark:      var(--main-color-dark-1);
+    --product-url:          url('./images/shoe-blue.png');
+}
+
+.product-card > input.red:hover ~ .product-card-wrapper {
+    --main-color:           var(--main-color-2);
+    --main-color-dark:      var(--main-color-dark-2);
+    --product-url:          url('./images/shoe-red.png');
+}
+
+.product-card > input.green:hover ~ .product-card-wrapper {
+    --main-color:           var(--main-color-3);
+    --main-color-dark:      var(--main-color-dark-3);
+    --product-url:          url('./images/shoe-green.png');
+}
+
+.product-card > input.orange:hover ~ .product-card-wrapper {
+    --main-color:           var(--main-color-4);
+    --main-color-dark:      var(--main-color-dark-4);
+    --product-url:          url('./images/shoe-orange.png');
+}
+
+.product-card > input.darkgrey:hover ~ .product-card-wrapper {
+    --main-color:           var(--main-color-5);
+    --main-color-dark:      var(--main-color-dark-5);
+    --product-url:          url('./images/shoe-darkgrey.png');
+}
+
+
+
+/* * * * * * * Color inputs * * * * * * */
+.product-card > input {
+    display: flex;
+    width: 24px;
+    height: 24px;
+    place-content: center;
+    background-color: transparent;
+    border-radius: 50%;
+    position: relative;
+    cursor: pointer;
+    position: absolute;
+    top: 296px;
+    z-index: 2;
+    appearance: none;
+    box-shadow: 0 0 6px 0 transparent;
+    transition: box-shadow .25s ease;
+}
+
+.product-card > input::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    transform: scale(1);
+    transition: all .25s ease;
+}
+
+.product-card > input:hover, .product-card > input:checked {
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, .3);
+}
+
+.product-card > input:hover::before, .product-card > input:checked::before {
+    transform: scale(.65);
+}
+
+.product-card > input.blue {
+    left: var(--color-input-padding);
+}
+
+.product-card > input.blue::before {
+    background-color: var(--main-color-1);
+}
+
+.product-card > input.red {
+    left: calc(var(--color-input-padding) + 1 * (24px + .5rem));
+}
+
+.product-card > input.red::before {
+    background-color: var(--main-color-2);
+}
+
+.product-card > input.green {
+    left: calc(var(--color-input-padding) + 2 * (24px + .5rem));
+}
+
+.product-card > input.green::before {
+    background-color: var(--main-color-3);
+}
+
+.product-card > input.orange {
+    left: calc(var(--color-input-padding) + 3 * (24px + .5rem));
+}
+
+.product-card > input.orange::before {
+    background-color: var(--main-color-4);
+}
+
+.product-card > input.darkgrey {
+    left: calc(var(--color-input-padding) + 4 * (24px + .5rem));
+}
+
+.product-card > input.darkgrey::before {
+    background-color: var(--main-color-5);
+}
+/* * * * * * * * * * * * * * * * * * * * * */
+
+@media only screen and (max-width: 900px) {
+    :root {
+        --color-input-padding: 32px;
+    }
+
+    .product-card > input {
+        top: 730px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .product-card > input {
+        top: 598px;
+    }
+}

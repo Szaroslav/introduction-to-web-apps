@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Lab2 - exercise 8</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="../../assets/favicon.png" type="image/png">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap">
+        <link rel="stylesheet" href="../../basis.css">
+        <link rel="stylesheet" href="colors.css">
+        <link rel="stylesheet" href="main.css">
+        <script src="https://kit.fontawesome.com/ecfb1d6b01.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+
+        <div class="product-card">
+            <input type="radio" name="productColor" class="blue" checked>
+            <input type="radio" name="productColor" class="red">
+            <input type="radio" name="productColor" class="green">
+            <input type="radio" name="productColor" class="orange">
+            <input type="radio" name="productColor" class="darkgrey">
+
+            <div class="product-card-wrapper">
+                <div class="product-preview">
+                    <img src="./images/nike-logo.png" alt="Nike" class="brand-logo">
+                    <div class="product-brand-name"></div>
+                    <div class="product-img"></div>
+                    <button class="share-btn">
+                        <i class="fa-solid fa-share-nodes"></i>
+                    </button>
+                </div>
+    
+                <div class="product-content">
+                    <div class="product-ctn">
+                        <p class="product-name new">Nike Zoom KD 12</p>
+                        <p class="product-category">Men's running shoes</p>
+                    </div>
+                    <div class="product-ctn">
+                        <p class="product-info product-heading">Product info</p>
+                        <p class="product-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente laudantium voluptatibus corrupti. Ipsum, tempore? Quos assumenda sapiente illo voluptate quas.</p>
+                    </div>
+                    <div class="product-ctn product-color">
+                        <p class="product-color product-heading">Color</p>
+                    </div>
+                    <div class="product-size-ctn product-ctn">
+                        <p class="product-size product-heading">Size</p>
+                        <div class="product-input-ctn">
+                            <input type="radio" name="productSize" value="7" class="size-7">
+                            <input type="radio" name="productSize" value="8" class="size-8">
+                            <input type="radio" name="productSize" value="9" class="size-9">
+                            <input type="radio" name="productSize" value="10" class="size-10">
+                            <input type="radio" name="productSize" value="11" class="size-11" checked>
+                        </div>
+                    </div>
+                    <div class="product-ctn shop-ctn">
+                        <button class="cart-btn">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            Add to cart
+                        </button>
+                        <p class="product-price">333.99</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </body>
+</html>
