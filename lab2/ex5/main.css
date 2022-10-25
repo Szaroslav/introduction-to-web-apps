@@ -23,7 +23,6 @@ main {
 }
 
 .nav-list {
-    width: 280px;
     list-style-type: none;
     padding-right: .75rem;
     color: #213760;
@@ -32,17 +31,21 @@ main {
 }
 
 .nav-item {
+    display: flex;
+    align-items: center;
     padding: .25rem 0;
     position: relative;
 }
 
 .nav-anchor {
-    display: block;
-    padding: .25rem 0 .25rem 1rem;
+    display: flex;
+    padding: .25rem 1rem;
+    align-items: center;
     position: relative;
     border-radius: 0 8px 8px 0;
     cursor: pointer;
-    transition: background-color .2s ease;
+    gap: .2rem;
+    transition: background-color .2s ease, width .5s ease;
 }
 
 .nav-anchor:hover {
@@ -55,7 +58,7 @@ main {
 }
 
 .nav-anchor i {
-    display: inline-block;
+    display: block;
     width: calc(2rem + 5px);
     padding: .25rem 0;
     font-size: 1.5rem;
@@ -67,29 +70,23 @@ main {
 }
 
 .nav-text {
+    display: block;
+    width: 160px;
     font-weight: 700;
-    position: absolute;
-    top: 50%;
-    left: 3.75rem;
-    transform: translateY(-50%);
     opacity: 1;
     visibility: visible;
-    transition: opacity .25s ease, visibility .25s ease;
+    transition: opacity .25s ease .15s, visibility .25s ease .15s, width .5s ease;
+    white-space: nowrap;
 }
 
 .nav-bubble {
-    margin-left: .5rem;
+    margin-left: .1rem;
     padding: .2rem .6rem;
     color: #36a2ea;
     font-size: .85rem;
     font-weight: 400;
     border: 1px solid #36a2ea;
     border-radius: 666rem;
-    position: absolute;
-    top: 50%;
-    left: 214px;
-    transform: translateY(-50%);
-    transition: left .3s ease;
 }
 
 @media (max-width: 1024px) {
@@ -97,26 +94,10 @@ main {
         gap: .5rem;
     }
 
-    .nav-list {
-        width: 124px;
-    }
-
     .nav-text {
+        width: 0;
         opacity: 0;
         visibility: hidden;
-    }
-
-    .nav-bubble {
-        left: 66px;
-    }
-}
-
-@media (min-width: 1025px) {
-    .nav-anchor {
-        width: 214px;
-    }
-
-    .nav-text {
-        transition-delay: .2s;
+        transition: opacity .25s ease, visibility .25s ease, width .5s ease;
     }
 }
