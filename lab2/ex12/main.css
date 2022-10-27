@@ -253,6 +253,11 @@ body {
         font-size: 19rem;
         top: 20%;
     }
+
+    .product-content .product-description {
+        height: 4em;
+        overflow: auto;
+    }
 }
 
 @media only screen and (max-width: 480px) {
@@ -262,5 +267,9 @@ body {
 
     .product-preview {
         height: 300px;
+    }
+
+    .product-content .product-description {
+        height: 6em;
     }
 }
