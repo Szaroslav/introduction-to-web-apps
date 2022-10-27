@@ -1,10 +1,10 @@
 :root {
-    --main-color-blue: #3795e7;
-    --main-color-dark-blue: #2e42c9;
-    --main-color-gold: #f1ac2a;
-    --main-color-dark-gold: #c58b34;
-    --main-color-purple: #8147ec;
-    --main-color-dark-purple: #652ebd;
+    --main-color-blue:          #3795e7;
+    --main-color-dark-blue:     #2e42c9;
+    --main-color-gold:          #f1ac2a;
+    --main-color-dark-gold:     #c58b34;
+    --main-color-purple:        #8147ec;
+    --main-color-dark-purple:   #652ebd;
 }
 
 body {
@@ -36,18 +36,18 @@ body {
 }
 
 .gallery-item.blue {
-    --main-color: var(--main-color-blue);
-    --main-color-dark: var(--main-color-dark-blue);
+    --main-color:       var(--main-color-blue);
+    --main-color-dark:  var(--main-color-dark-blue);
 }
 
 .gallery-item.gold {
-    --main-color: var(--main-color-gold);
-    --main-color-dark: var(--main-color-dark-gold);
+    --main-color:       var(--main-color-gold);
+    --main-color-dark:  var(--main-color-dark-gold);
 }
 
 .gallery-item.purple {
-    --main-color: var(--main-color-purple);
-    --main-color-dark: var(--main-color-dark-purple);
+    --main-color:       var(--main-color-purple);
+    --main-color-dark:  var(--main-color-dark-purple);
 }
 
 .gallery-face.front, .gallery-face.back {
