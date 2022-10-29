@@ -26,3 +26,17 @@ button {
     border: none;
     cursor: pointer;
 }
+
+input[type="text"], input[type="password"], input[type="email"], input[type="number"] {
+    padding: .5em;
+    border: none;
+    outline: none;
+    appearance: none;
+}
+
+input[type="submit"], input[type="button"] {
+    padding: .5em;
+    border: none;
+    appearance: none;
+    cursor: pointer;
+}
