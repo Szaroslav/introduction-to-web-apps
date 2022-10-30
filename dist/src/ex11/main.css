@@ -1,0 +1,133 @@
+:root {
+    --main-color:       #b3f13e;
+    --main-color-dark:  #83b822;
+    --color-dark:       #2e302b;
+    --color-darker:     #242522;
+    --bg-color:         #f0f0f0;
+}
+
+body {
+    background-color: var(--bg-color);
+}
+
+.navigation {
+    width: 40%;
+    max-width: 600px;
+    margin: 4rem auto;
+    color: white;
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+.navigation ul {
+    list-style-type: none;
+}
+
+.navigation input[name="navBtn"] {
+    display: none;
+}
+
+.nav-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: var(--main-color);
+    color: var(--color-dark);
+    font-weight: 600;
+    position: relative;
+    cursor: pointer;
+    transition: all .25s ease;
+}
+
+.nav-label::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: var(--main-color-dark);
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: all .25s ease;
+}
+
+.navigation input[name="navBtn"]:checked ~ .nav-label {
+    color: white;
+}
+
+.navigation input[name="navBtn"]:checked ~ .nav-label::before {
+    transform: scaleX(1);
+}
+
+.nav-label > span, .nav-label > span {
+    position: relative;
+    z-index: 1;
+}
+
+.nav-label > i {
+    transform: rotateZ(0deg);
+    transition: transform .25s ease;
+}
+
+.navigation input[name="navBtn"]:checked ~ .nav-label > i {
+    transform: rotateZ(180deg);
+}
+
+.nav-sublist {
+    max-height: 0;
+    transition: max-height .5s ease;
+    overflow: hidden;
+}
+
+.navigation input[name="navBtn"]:checked ~ .nav-sublist {
+    max-height: 200px;
+}
+
+.nav-sublink {
+    display: block;
+    padding: .5rem 1.5rem;
+    background-color: var(--color-dark);
+    font-weight: 300;
+    position: relative;
+}
+
+.nav-sublink::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 19px solid transparent;
+    border-left: 19px solid var(--bg-color);
+    border-right: 19px solid var(--bg-color);
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1px;
+    transition: all .25s ease;
+}
+
+.nav-sublink:hover::before {
+    opacity: 1;
+    visibility: visible;
+}
+
+.nav-sublink:hover {
+    background-image: linear-gradient(to bottom, var(--color-dark) 50%, var(--color-darker) 50%);
+}
+
+@media only screen and (max-width: 1024px) {
+    .navigation {
+        width: 70%;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .navigation {
+        width: 90%;
+    }
+}
