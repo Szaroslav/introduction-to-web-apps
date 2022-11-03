@@ -1,9 +1,21 @@
 body {
+    min-height: 100vh;
     background-color: #f5f5f5;
 }
 
-.button {
+.app-wrapper {
+    padding: 3rem;
+    padding-bottom: 200px;
+}
+
+div.button {
     margin: 0 auto;
+    cursor: pointer;
+    transition: background-color .25s ease;
+}
+
+.button[data-enabled="false"] {
+    cursor: default;
 }
 
 .button-1 {
@@ -11,18 +23,69 @@ body {
     height: 256px;
     padding-top: 96px;
     background-color: white;
-    cursor: pointer;
+}
+
+.button-1:hover {
+    background-color: #fbfbfb;
+}
+
+.button-1[data-enabled="false"] {
+    background-color: #d4d4d4;
 }
 
 .button-2 {
     width: 128px;
     height: 128px;
     padding-top: 48px;
-    background-color: #f21230;
+    background-color: #7b2cbf;
+}
+
+.button-2:hover {
+    background-color: #8c3bd2;
+}
+
+.button-2[data-enabled="false"] {
+    background-color: #565656;
 }
 
 .button-3 {
     width: 64px;
     height: 64px;
-    background-color: #f2c112;
+    background-color: #ff9e00;
+}
+
+.button-3:hover {
+    background-color: #f7a41f;
+}
+
+.button-3[data-enabled="false"] {
+    background-color: #353535;
+}
+
+.buttons-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    gap: .5rem;
+}
+
+.message-container {
+    width: 500px;
+    position: fixed;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+.counter-container {
+    display: flex;
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
 }
