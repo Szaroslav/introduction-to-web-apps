@@ -13,7 +13,7 @@ onload = () => {
 
     const createItem = (name, phoneNumber) => {
         const itemDetails = createElement('div', 'item-details', '', [
-            createElement('i', 'item-icon fa-solid fa-skull'),
+            createElement('i', 'item-icon fa-solid fa-skull uk-text-primary'),
             createElement('p', 'item-name uk-text-bold uk-text-emphasis', name),
             createElement('p', 'item-phone-number', phoneNumber)
         ]);
@@ -44,4 +44,4 @@ onload = () => {
     phonebook.append(createItem('Jakub Nowak', '+048 666 332 137'));
     phonebook.append(createItem('Robert Kubica', '000 000 000'));
     phonebook.append(createItem('Jan-Krzysztof Duda', '+048 333 902 137'));
-}
+};
