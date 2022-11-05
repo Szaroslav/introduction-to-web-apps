@@ -16,7 +16,7 @@ onload = () => {
         el.textContent = text;
 
         return el;
-    }
+    };
 
     const showMessages = buttons => {
         messageContainer.querySelectorAll('.message-row').forEach(row => row.remove());
