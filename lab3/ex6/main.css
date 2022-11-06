@@ -47,8 +47,28 @@ body {
     gap: 1em;
 }
 
-.add-new-item-input:valid {
-    border-color: #bff5af;
+.input-label {
+    display: block;
+    flex: 1;
+    position: relative;
+}
+
+.input-validation {
+    width: 1.25em;
+    height: 100%;
+    background-color: #f54c5a;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transition: background-color .3s ease;
+}
+
+.add-new-item-input:valid + .input-validation {
+    background-color: #99f36f;
+}
+
+.add-new-item-input {
+    padding-right: 2em;
 }
 
 @media only screen and (max-width: 768px) {

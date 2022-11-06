@@ -35,26 +35,34 @@
             </ul>
             <div class="phonebook-add-container uk-card uk-card-default uk-card-hover uk-card-body">
                 <form class="add-new-item-form">
-                    <input
-                        name="contactFullName"
-                        class="add-new-item-input uk-input"
-                        type="text"
-                        placeholder="Full name"
-                        aria-label="Full name"
-                        title="Full name format: Ll... Ll...-Ll..., where L means uppercase, l lowercase and -Ll is optional, e.g. James Bond"
-                        pattern="^[A-Z]{1}[a-z]* [A-Z]{1}[a-z]*(?:-[A-Z]{1}[a-z]*)?$"
-                        required
-                    >
-                    <input
-                        name="contactPhoneNumber"
-                        class="add-new-item-input uk-input"
-                        type="text"
-                        placeholder="Phone number"
-                        aria-label="Phone number"
-                        title="Phone number format: +DDD DDD DDD DDD, where D means digit and +DDD is optional, e.g. 666 332 137"
-                        pattern="^(?:\+[0-9]{3})?(?:\s*[0-9]\s*){9}?$"
-                        required
-                    >
+                    <label for="contact-full-name" class="input-label">
+                        <input
+                            name="contactFullName"
+                            id="contact-full-name"
+                            class="add-new-item-input uk-input"
+                            type="text"
+                            placeholder="Full name"
+                            aria-label="Full name"
+                            title="Full name format: Ll... Ll...-Ll..., where L means uppercase, l lowercase and -Ll is optional, e.g. James Bond"
+                            pattern="^\p{Lu}{1}\p{Ll}* \p{Lu}{1}\p{Ll}*(?:-\p{Lu}{1}\p{Ll}*)?$"
+                            required
+                        >
+                        <span class="input-validation"></span>
+                    </label>
+                    <label for="contact-phone-number" class="input-label">
+                        <input
+                            name="contactPhoneNumber"
+                            id="contact-phone-number"
+                            class="add-new-item-input uk-input"
+                            type="text"
+                            placeholder="Phone number"
+                            aria-label="Phone number"
+                            title="Phone number format: +DDD DDD DDD DDD, where D means digit and +DDD is optional, e.g. 666 332 137"
+                            pattern="^(?:\+[0-9]{3})?(?:\s*[0-9]\s*){9}?$"
+                            required
+                        >
+                        <span class="input-validation"></span>
+                    </label>
                     <input
                         class="add-new-item-button button uk-button uk-button-secondary"
                         type="submit"
