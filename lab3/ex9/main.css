@@ -8,9 +8,26 @@ body {
 }
 
 .slider-container {
-    display: flex;
+    display: grid;
+    grid-template-columns: max-content 1fr max-content;
+    grid-template-rows: repeat(2, auto);
+    justify-content: center;
     align-items: center;
     gap: 2em;
+}
+
+.slider-title {
+    margin: 0 auto;
+    color: white;
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+    grid-column: span 3;
+}
+
+.slider-title > i {
+    color: #f02154;
 }
 
 .slider-button {
@@ -75,21 +92,28 @@ body {
 }
 
 .item-name {
-    font-size: 1.75rem;
-}
-
-.item-name > i {
-    color: #f02154;
+    font-size: 1.5rem;
 }
 
 .item-details {
-    padding: 2em 0 3em 0;
+    margin: 2em 0 3em 0;
     font-weight: 300;
+    position: relative;
 }
 
-.item-quotes-container {
-    color: white;
-    font-size: 4rem;
+.item-details > i {
+    font-size: 2.5rem;
+    position: absolute;
+}
+
+.icon-quote-left {
+    top: -.9em;
+    left: 0;
+}
+
+.icon-quote-right {
+    bottom: -.9em;
+    right: 0;
 }
 
 .icon-bg {
@@ -106,7 +130,7 @@ body {
 
 .icon-bg-2 {
     font-size: 7rem;
-    top: 40%;
+    top: 50%;
     right: 3rem;
 }
 
@@ -116,4 +140,8 @@ body {
     bottom: 1rem;
     left: 50%;
     transform: translateX(-50%);
+}
+
+.randomize-button:hover {
+    background-color: white;
 }
