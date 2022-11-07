@@ -1,0 +1,10 @@
+:root {
+    --main-dark-color: #363636;
+    --secondary-dark-color: #242424;
+}
+
+body {
+    min-height: 100vh;
+    background-color: #363636;
+}
+
