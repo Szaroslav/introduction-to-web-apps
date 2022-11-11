@@ -18,7 +18,51 @@
     </head>
     <body>
 
-        
+        <div class="countries-container">
+            <div class="filter-container">
+                <p class="filter-title">Filters</p>
+                <form action="dialog" class="filter-form">
+                    <ul class="filter-list">
+                        <li class="filter-input-item">
+                            <label class="filter-input-label">Name</label>
+                            <input id="filter-name" name="name" type="text" data-name="name" data-type="text" class="filter-input uk-input">
+                        </li>
+                        <li class="filter-input-item">
+                            <label class="filter-input-label">Capital</label>
+                            <input id="filter-capital" name="capital" type="text" data-name="capital" data-type="text" class="filter-input uk-input">
+                        </li>
+                        <li class="filter-input-item filter-range">
+                            <label class="filter-input-label">Population</label>
+                            <div class="filter-input-container">
+                                <input id="filter-population-min" name="populationMin" type="text" value="0" data-name="population" data-type="min" class="filter-input uk-input">
+                                <span></span>
+                                <input id="filter-population-min-name" name="populationMax" type="text" data-name="population" data-type="max" class="filter-input uk-input">
+                            </div>
+                        </li>
+                        <li class="filter-input-item filter-range">
+                            <label class="filter-input-label">Area</label>
+                            <div class="filter-input-container">
+                                <input id="filter-area-min" name="areaMin" type="text" value="0" data-name="area" data-type="min" class="filter-input uk-input">
+                                <span></span>
+                                <input id="filter-area-max" name="areaMax" type="text" data-name="area" data-type="max" class="filter-input uk-input">
+                            </div>
+                        </li>
+                    </ul>
+                    <input type="submit" value="Filter" class="filter-submit uk-button uk-button-primary">
+                </form>
+            </div>
+            <ul class="countries-list">
+                <li class="list-header list-item">
+                    <div class="item-content">
+                        <p class="item-name"><span data-name="name" class="sorted sorted-ascending">Name</span></p>
+                        <p class="item-capital"><span data-name="capital">Capital</span></p>
+                        <p class="item-population"><span data-name="population">Population</span></p>
+                        <p class="item-area"><span data-name="area">Area</span></p>
+                        <div class="dummy-container item-show-button"></div>
+                    </div>
+                </li>
+            </ul>
+        </div>
 
     </body>
 </html>
