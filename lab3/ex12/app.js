@@ -7,10 +7,10 @@ onload = async () => {
     const DB_URL = 'https://jsonblob.com/api/jsonBlob/1041360271880503296';
 
     const game = document.querySelector('.game');
-    const gameOverElement = document.querySelector('.game-over');
+    const gameOverUI = document.querySelector('.game-ui-over');
     const highScoresUI = document.querySelector('.game-ui-high-scores');
-    const healthElement = document.querySelector('.game-health')
-    const scoreElement = document.querySelector('.game-score');
+    const healthUI = document.querySelector('.game-ui-health')
+    const scoreUI = document.querySelector('.game-ui-score');
     const nicknameUI = document.querySelector('.game-ui-nickname');
     const nicknameFormUI = document.querySelector('.game-ui-nickname-form');
 
@@ -35,7 +35,7 @@ onload = async () => {
     const restart = () => {
         setHealth(MAX_HEALTH);
         setScore(0);
-        gameOverElement.classList.remove('active');
+        gameOverUI.classList.remove('active');
         game.querySelectorAll('.game-mob').forEach(mob => mob.remove());
 
         gameId = setInterval(spawnMob, randRange(800, 1200));
@@ -60,26 +60,26 @@ onload = async () => {
     const handleGameOver = () => {
         isGameOver = true;
         clearInterval(gameId);
-        addScore(nickname, score);
-        renderHighScores();
-
-        gameOverElement.classList.add('active');
+        addScore(nickname, score).then(() => {
+            renderHighScores();
+            gameOverUI.classList.add('active');
+        });
     };
 
     const setScore = x => {
         score = x;
         score = Math.max(score, 0);
-        scoreElement.innerText = '0'.repeat(Math.max(scoreElement.innerText.length - score.toString().length, 0)) + score.toString();
+        scoreUI.innerText = '0'.repeat(Math.max(scoreUI.innerText.length - score.toString().length, 0)) + score.toString();
     };
 
     const setHealth = x => {
         health = Math.max(x, 0);
 
-        healthElement.innerHTML = '';
+        healthUI.innerHTML = '';
         for (let i = 0; i < health; i++)
-            healthElement.append(createElement('i', 'game-icon-heart fa-solid fa-heart'));
+            healthUI.append(createElement('i', 'game-icon-heart fa-solid fa-heart'));
         for (let i = 0; i < MAX_HEALTH - health; i++)
-            healthElement.append(createElement('i', 'game-icon-heart lost fa-solid fa-heart-crack'));
+            healthUI.append(createElement('i', 'game-icon-heart lost fa-solid fa-heart-crack'));
 
         if (health <= 0)
             handleGameOver();
@@ -151,7 +151,7 @@ onload = async () => {
     };
 
     const renderHighScores = () => {
-        highScoresUI.innerHTML = '';
+        highScoresUI.innerHTML = '<li class="game-ui-high-scores-title game-ui-high-scores-item">Leaderboard</li>';
 
         gameData.highScores.forEach((highScore, i) => {
             highScoresUI.append(createElement('li', 'game-ui-high-scores-item', '', [
@@ -169,7 +169,7 @@ onload = async () => {
 
     const init = () => {
         game.addEventListener('click', handleGameClick);
-        gameOverElement.querySelector('.game-over-button').addEventListener('click', restart);
+        gameOverUI.querySelector('.game-ui-over-button').addEventListener('click', restart);
         nicknameFormUI.addEventListener('submit', handleNicknameSubmit);
         setHealth(MAX_HEALTH);
     }

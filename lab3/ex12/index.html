@@ -19,16 +19,19 @@
     <body>
 
         <div class="game">
+            
             <div class="game-ui">
-                <div class="game-health">
+                <div class="game-ui-health">
                     <i class="game-icon-heart fa-solid fa-heart"></i>
                     <i class="game-icon-heart lost fa-solid fa-heart-crack"></i>
                 </div>
                 <div class="game-ui-nickname"></div>
-                <div class="game-score">00000</div>
-                <div class="game-over">
-                    <ul class="game-ui-high-scores uk-section uk-section-secondary uk-padding"></ul>
-                    <button class="game-over-button uk-button uk-button-primary">Play again</button>
+                <div class="game-ui-score">00000</div>
+                <div class="game-ui-over">
+                    <ul class="game-ui-high-scores uk-section uk-section-secondary uk-padding">
+                        <li class="game-ui-high-scores-title game-ui-high-scores-item">Leaderboard</li>
+                    </ul>
+                    <button class="game-ui-over-button uk-button uk-button-primary">Play again</button>
                 </div>
                 <div class="game-ui-nickname-form-container active">
                     <form action="dialog" class="game-ui-nickname-form uk-section uk-section-secondary uk-padding">
@@ -36,9 +39,9 @@
                         <input id="game-nickname" name="gameNickname" type="text" class="game-ui-input uk-input" pattern="(?:\s*\p{L}\s*)+" required>
                         <input type="submit" value="Enter" class="game-ui-button uk-button">
                     </form>
-
                 </div>
             </div>
+
         </div>
 
     </body>
