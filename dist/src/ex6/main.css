@@ -1,176 +1,78 @@
 body {
+    min-height: 100vh;
     background-color: #f5f5f5;
 }
 
-nav {
+.phonebook-container {
+    list-style-type: none;
     display: flex;
-    padding: 1.5rem;
-    color: white;
-    background-color: #242424;
+    flex-direction: column;
+    gap: 1em;
+    padding: 4em 0;
+    margin-bottom: 0;
+}
+
+.phonebook-item {
+    display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.logo {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
+.item-details {
+    display: grid;
+    grid-template-columns: max-content auto;
+    grid-template-rows: repeat(2, 1fr);
+    align-items: center;
+    gap: .25em 1.5em;
 }
 
-.nav-list {
-    list-style-type: none;
+.item-details > p {
+    margin: 0;
 }
 
-.nav-list .nav-link {
-    position: relative;
+.item-icon {
+    font-size: 4rem;
+    grid-row: span 2;
 }
 
-#nav-checkbox {
-    display: none;
+.delete-item-button {
+    width: 2.5em;
+    height: 2.5em;
+    padding: 0;
+    font-size: 1.25rem;
 }
 
-.nav-button {
-    cursor: pointer;
+.add-new-item-form {
+    display: flex;
+    gap: 1em;
 }
 
-.nav-icon {
+.input-label {
     display: block;
-    width: 32px;
-    height: 25px;
+    flex: 1;
     position: relative;
 }
 
-.nav-icon > .line {
-    width: 100%;
-    height: 3px;
-    background-color: white;
+.input-validation {
+    width: 1.25em;
+    height: 100%;
+    background-color: #f54c5a;
     position: absolute;
-    left: 0;
-    transition: transform .3s ease;
-}
-
-.nav-icon > .line:nth-child(1) {
     top: 0;
-    transform-origin: top left;
+    right: 0;
+    transition: background-color .3s ease;
 }
 
-.nav-icon > .line:nth-child(2) {
-    top: 11px;
-    transform-origin: right;
+.add-new-item-input:valid + .input-validation {
+    background-color: #99f36f;
 }
 
-.nav-icon > .line:nth-child(3) {
-    bottom: 0;
-    transform-origin: bottom left;
+.add-new-item-input {
+    padding-right: 2em;
 }
 
-@media screen and (max-width: 800px) {
-    .nav-list {
-        display: flex;
-        opacity: 0;
-        visibility: hidden;
-        width: 100%;
-        height: calc(100vh - 82px);
+@media only screen and (max-width: 768px) {
+    .add-new-item-form {
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        font-size: 1.25rem;
-        background-color: #323232;
-        gap: 1.5rem;
-        position: absolute;
-        top: 82px;
-        left: 0;
-        transition: opacity .3s ease, visibility .3s ease;
-    }
-
-    .nav-list .nav-item {
-        text-align: center;
-    }
-    
-    .nav-list .nav-link {
-        display: inline-block;
-        padding: 1rem;
-        opacity: 0;
-        visibility: hidden;
-        transform: translateY(-.5rem);
-        transition: opacity .25s ease, visibility .25s ease, transform .25s ease;
-        transition-delay: 0;
-    }
-
-    #nav-checkbox:checked ~ .nav-list .nav-link {
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0);
-    }
-
-    #nav-checkbox:checked ~ .nav-list .nav-link.item-1 {
-        transition-delay: .4s;
-    }
-
-    #nav-checkbox:checked ~ .nav-list .nav-link.item-2 {
-        transition-delay: .5s;
-    }
-
-    #nav-checkbox:checked ~ .nav-list .nav-link.item-3 {
-        transition-delay: .6s;
-    }
-
-    #nav-checkbox:checked ~ .nav-list .nav-link.item-4 {
-        transition-delay: .7s;
-    }
-
-    #nav-checkbox:checked ~ .nav-list .nav-link.item-5 {
-        transition-delay: .8s;
-    }
-    
-    #nav-checkbox:checked ~ .nav-list {
-        opacity: 1;
-        visibility: visible;
-    }
-
-    #nav-checkbox:checked ~ .nav-button .line:nth-child(1) {
-        transform: rotate(45deg) translate(4px, -4px);
-    }
-
-    #nav-checkbox:checked ~ .nav-button .line:nth-child(2) {
-        transform: scaleX(0);
-    }
-
-    #nav-checkbox:checked ~ .nav-button .line:nth-child(3) {
-        transform: rotate(-45deg) translate(4px, 4px);
-    }
-}
-
-@media screen and (min-width: 801px) {
-    .nav-list {
-        display: flex;
-        gap: 1rem;
-    }
-    
-    .nav-list .nav-link {
-        display: block;
-        padding: .5rem;
-    }
-
-    .nav-list .nav-link::after {
-        content: '';
-        display: block;
-        width: 100%;
-        height: 2px;
-        background-color: white;
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        transform: scaleX(0);
-        transition: transform .25s ease;
-    }
-
-    .nav-list .nav-link:hover::after {
-        transform: scaleX(1);
-    }
-
-    .nav-button {
-        display: none;
     }
 }

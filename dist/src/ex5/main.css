@@ -1,103 +1,131 @@
+:root {
+    --white-primary-color:      white;
+    --white-secondary-color:    #fbfbfb;
+    --purple-primary-color:     #7b2cbf;
+    --purple-secondary-color:   #8c3bd2;
+    --orange-primary-color:     #ff9e00;
+    --orange-secondary-color:   #f7a41f;
+}
+
 body {
-    background-color: #dae2ef;
+    min-height: 100vh;
+    background-color: #f5f5f5;
 }
 
 .app-wrapper {
-    display: flex;
-    gap: 1.25rem;
+    padding: 3rem;
+    padding-bottom: 200px;
 }
 
-nav, main {
-    min-height: 100vh;
-    padding: 1rem 0;
-    background-color: white;
-}
-
-nav {
-    border-right: 1px solid #cdd6e3;
-}
-
-main {
-    flex-grow: 1;
-    border-left: 1px solid #cdd6e3;
-}
-
-.nav-list {
-    list-style-type: none;
-    padding-right: .75rem;
-    color: #213760;
-    text-transform: uppercase;
-    transition: width .3s ease .15s;
-}
-
-.nav-item {
-    display: flex;
-    align-items: center;
-    padding: .25rem 0;
-    position: relative;
-}
-
-.nav-anchor {
-    display: flex;
-    padding: .25rem 1rem;
-    align-items: center;
-    position: relative;
-    border-radius: 0 8px 8px 0;
+div.button {
+    margin: 0 auto;
     cursor: pointer;
-    gap: .2rem;
-    transition: background-color .2s ease, width .5s ease;
+    transition: background-color .25s ease;
 }
 
-.nav-anchor:hover {
-    background-color: #36a2ea;
+.button[data-enabled="false"] {
+    cursor: default;
 }
 
-.nav-anchor:hover i {
+.button-1 {
+    width: 256px;
+    height: 256px;
+    padding-top: 96px;
+    background-color: var(--white-primary-color);
+}
+
+.button-1:hover {
+    background-color: var(--white-secondary-color);
+}
+
+.button-1[data-enabled="false"] {
+    background-color: #d4d4d4;
+}
+
+.button-2 {
+    width: 128px;
+    height: 128px;
+    padding-top: 48px;
+    background-color: var(--purple-primary-color);
+}
+
+.button-2:hover {
+    background-color: var(--purple-secondary-color);
+}
+
+.button-2[data-enabled="false"] {
+    background-color: #565656;
+}
+
+.button-3 {
+    width: 64px;
+    height: 64px;
+    background-color: var(--orange-primary-color);
+}
+
+.button-3:hover {
+    background-color: var(--orange-secondary-color);
+}
+
+.button-3[data-enabled="false"] {
+    background-color: #353535;
+}
+
+.buttons-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    gap: .5rem;
+}
+
+.counter-container {
+    display: flex;
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+}
+
+.message-container {
+    width: 400px;
+    min-height: 204px;
+    position: fixed;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+.message-row {
+    display: flex;
+    margin: .25em 0;
+    gap: .5em;
+}
+
+.message-row > * {
+    margin: 0;
+}
+
+.message-label {
+    width: 4.5em;
     color: white;
-    border-color: white;
-}
-
-.nav-anchor i {
-    display: block;
-    width: calc(2rem + 5px);
-    padding: .25rem 0;
-    font-size: 1.5rem;
-    border: 3px solid #213760;
-    border-radius: 4px;
     text-align: center;
-    box-sizing: border-box;
-    transition: color .2s ease, border-color .2s ease;
+    text-transform: capitalize;
 }
 
-.nav-text {
-    display: block;
-    width: 160px;
-    font-weight: 700;
-    opacity: 1;
-    visibility: visible;
-    transition: opacity .25s ease .15s, visibility .25s ease .15s, width .5s ease;
-    white-space: nowrap;
+.message-label.white {
+    color: #333;
+    background-color: var(--white-secondary-color);
 }
 
-.nav-bubble {
-    margin-left: .1rem;
-    padding: .2rem .6rem;
-    color: #36a2ea;
-    font-size: .85rem;
-    font-weight: 400;
-    border: 1px solid #36a2ea;
-    border-radius: 666rem;
+.message-label.purple {
+    background-color: var(--purple-primary-color);
 }
 
-@media (max-width: 1024px) {
-    .app-wrapper {
-        gap: .5rem;
-    }
-
-    .nav-text {
-        width: 0;
-        opacity: 0;
-        visibility: hidden;
-        transition: opacity .25s ease, visibility .25s ease, width .5s ease;
-    }
+.message-label.orange {
+    background-color: var(--orange-primary-color);
 }

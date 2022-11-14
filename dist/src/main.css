@@ -1,6 +1,6 @@
 :root {
-    --main-color: #99f126;
-    --main-color-light: #b4f362;
+    --main-color: #6d26f1;
+    --main-color-light: #b262f3;
     --bg-color: #181818;
 }
 
@@ -49,7 +49,7 @@ body {
     align-items: center;
     padding: .5em;
     background-image: linear-gradient(to right, var(--main-color-light), var(--main-color));
-    color: var(--bg-color);
+    color: #f0f0f0;
     border-radius: .25em;
     gap: .5em;
 }
