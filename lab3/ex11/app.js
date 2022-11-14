@@ -38,7 +38,7 @@ onload = async () => {
 
         const contentChildren = [
             createElement('p', 'item-name', content.name !== undefined ? content.name : (isItem ? '' : '-')),
-            createElement('p', 'item-capital', content.capital !== undefined ? content.capital[0] : (isItem ? '' : '-')),
+            createElement('p', 'item-capital', content.capital !== undefined ? content.capital : (isItem ? '' : '-')),
             createElement('p', 'item-population', content.population !== undefined ? parseNumber(content.population) : ''),
             createElement('p', 'item-area', content.area !== undefined ? parseNumber(content.area) : '')
         ];
@@ -65,6 +65,9 @@ onload = async () => {
     };
 
     const setEdgeValues = data => {
+        edgeValues.population = {min: Number.MAX_VALUE, max: 0};
+        edgeValues.area = {min: Number.MAX_VALUE, max: 0};
+
         data.forEach(country => {
             edgeValues.population.min = Math.min(edgeValues.population.min, country.population);
             edgeValues.population.max = Math.max(edgeValues.population.max, country.population);
@@ -211,8 +214,8 @@ onload = async () => {
             
             activeSubregions[subregion[0].subregion] && item.classList.add('active');
             item.querySelector('.item-name').textContent = subregion[0].subregion;
-            item.querySelector('.item-population').textContent = parseNumber(population);
-            item.querySelector('.item-area').textContent = parseNumber(area);
+            item.querySelector('.item-population').textContent = parseNumber(Math.floor(population));
+            item.querySelector('.item-area').textContent = parseNumber(Math.floor(area));
 
             list.append(item);
         });
@@ -221,7 +224,7 @@ onload = async () => {
     let data = await getDataJSON('https://restcountries.com/v3.1/all')
     const dataTemplate = data.map(c => ({
         name: c.name.official,
-        capital: c.capital,
+        capital: c.capital ? c.capital[0] : '',
         population: c.population,
         area: c.area ? c.area : 0,
         subregion: (c.subregion === undefined ? c.region : c.subregion)
