@@ -1,0 +1,147 @@
+body {
+    min-height: 100vh;
+    background-color: #f5f5f5;
+}
+
+.rotate-x {
+    transform: rotateZ(180deg);
+}
+
+.slider-container {
+    display: grid;
+    grid-template-columns: max-content 1fr max-content;
+    grid-template-rows: repeat(2, auto);
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+}
+
+.slider-title {
+    margin: 0 auto;
+    color: white;
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+    grid-column: span 3;
+}
+
+.slider-title > i {
+    color: #f02154;
+}
+
+.slider-button {
+    display: flex;
+    flex: 0 0 2.5em;
+    width: 2.5em;
+    height: 2.5em;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    border-radius: .25em;
+    transition: .25s ease;
+}
+
+.slider-button:hover {
+    background-color: #f02154 !important;
+}
+
+.slider-button-right {
+    order: 3;
+}
+
+.slider-list-wrapper {
+    position: relative;
+    overflow-x: hidden;
+}
+
+.slider-list {
+    list-style-type: none;
+    display: flex;
+    padding: 0;
+    gap: 16px;
+    transform: translateX(0);
+    transition: transform 1s ease;
+}
+
+.slider-item {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    flex: 0 0 100%;
+    text-align: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.slider-item * {
+    margin: 0;
+}
+
+.item-image {
+    width: 30%;
+    max-width: 320px;
+    margin-bottom: 2em;
+    border-radius: 1em;
+}
+
+.item-name, .item-title {
+    color: #f5f5f5;
+}
+
+.item-name {
+    font-size: 1.5rem;
+}
+
+.item-details {
+    margin: 2em 0 3em 0;
+    font-weight: 300;
+    position: relative;
+}
+
+.item-details > i {
+    font-size: 2.5rem;
+    position: absolute;
+}
+
+.icon-quote-left {
+    top: -.9em;
+    left: 0;
+}
+
+.icon-quote-right {
+    bottom: -.9em;
+    right: 0;
+}
+
+.icon-bg {
+    color: #f02154;
+    font-size: 10rem;
+    position: absolute;
+    z-index: -1;
+}
+
+.icon-bg-1 {
+    bottom: 0;
+    left: 3rem;
+}
+
+.icon-bg-2 {
+    font-size: 7rem;
+    top: 50%;
+    right: 3rem;
+}
+
+.randomize-button {
+    background-color: white;
+    position: fixed;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.randomize-button:hover {
+    background-color: white;
+}

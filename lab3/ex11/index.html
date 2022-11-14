@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Lab3 - exercise 11</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="../../assets/favicon.png" type="image/png">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.15.11/dist/css/uikit.min.css">
+        <link rel="stylesheet" href="../../basis.css">
+        <link rel="stylesheet" href="./main.css">
+        <script src="https://kit.fontawesome.com/ecfb1d6b01.js" crossorigin="anonymous"></script>
+        <script src="./app.js"></script>
+    </head>
+    <body>
+
+        <div class="countries-container">
+            <div class="filter-container">
+                <p class="filter-title">Filters</p>
+                <form action="dialog" class="filter-form">
+                    <ul class="filter-list">
+                        <li class="filter-input-item">
+                            <label class="filter-input-label">Name</label>
+                            <input id="filter-name" name="name" type="text" data-name="name" data-type="text" class="filter-input uk-input">
+                        </li>
+                        <li class="filter-input-item">
+                            <label class="filter-input-label">Capital</label>
+                            <input id="filter-capital" name="capital" type="text" data-name="capital" data-type="text" class="filter-input uk-input">
+                        </li>
+                        <li class="filter-input-item filter-range">
+                            <label class="filter-input-label">Population</label>
+                            <div class="filter-input-container">
+                                <input id="filter-population-min" name="populationMin" type="text" value="0" data-name="population" data-type="min" class="filter-input uk-input">
+                                <span></span>
+                                <input id="filter-population-min-name" name="populationMax" type="text" data-name="population" data-type="max" class="filter-input uk-input">
+                            </div>
+                        </li>
+                        <li class="filter-input-item filter-range">
+                            <label class="filter-input-label">Area</label>
+                            <div class="filter-input-container">
+                                <input id="filter-area-min" name="areaMin" type="text" value="0" data-name="area" data-type="min" class="filter-input uk-input">
+                                <span></span>
+                                <input id="filter-area-max" name="areaMax" type="text" data-name="area" data-type="max" class="filter-input uk-input">
+                            </div>
+                        </li>
+                    </ul>
+                    <input type="submit" value="Filter" class="filter-submit uk-button uk-button-primary">
+                </form>
+            </div>
+            <ul class="countries-list">
+                <li class="list-header list-item">
+                    <div class="item-content">
+                        <p class="item-name"><span data-name="name" class="sorted sorted-ascending">Name</span></p>
+                        <p class="item-capital"><span data-name="capital">Capital</span></p>
+                        <p class="item-population"><span data-name="population">Population</span></p>
+                        <p class="item-area"><span data-name="area">Area</span></p>
+                        <div class="dummy-container item-show-button"></div>
+                    </div>
+                </li>
+                <li class="list-pagination list-item">
+                    <a href="#" class="list-pagination-item">1</a>
+                    <a href="#" class="list-pagination-item">2</a>
+                    <a href="#" class="list-pagination-item">3</a>
+                </li>
+            </ul>
+        </div>
+
+    </body>
+</html>

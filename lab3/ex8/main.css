@@ -1,0 +1,76 @@
+body {
+    min-height: 100vh;
+    background-color: #f5f5f5;
+}
+
+.password-form-wrapper {
+    padding: 4em 0;
+}
+
+.password-form {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    margin: 0 auto;
+    gap: 1em;
+}
+
+.form-input-container {
+    position: relative;
+}
+
+.form-input-container input {
+    padding-right: 2.5em;
+}
+
+.password-icon {
+    font-size: 1.25em;
+    position: absolute;
+    bottom: 10px;
+    right: .5em;
+    cursor: pointer;
+    transition: text-shadow .25s ease;
+}
+
+.password-icon:hover {
+    text-shadow: 0 0 4px rgba(0, 0, 0, .1);
+}
+
+.hide-password-icon {
+    right: calc(.5em - 1px);
+}
+
+input[type="password"] ~ .show-password-icon, input[type="text"] ~ .hide-password-icon {
+    display: block;
+}
+
+input[type="text"] ~ .show-password-icon, input[type="password"] ~ .hide-password-icon {
+    display: none;
+}
+
+.password-requirements-container {
+    margin-top: 1.5em;
+}
+
+.password-requirements-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.password-requirement-item {
+    display: flex;
+    align-items: center;
+    gap: .3em;
+}
+
+.password-requirement-item .icon {
+    font-size: 1.25em;
+}
+
+.password-requirement-item.invalid .icon-valid, .password-requirement-item.valid .icon-invalid {
+    display: none;
+}
+
+.password-requirement-item.valid .icon-valid, .password-requirement-item.invalid .icon-invalid {
+    display: block;
+}
