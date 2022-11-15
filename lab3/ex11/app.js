@@ -163,7 +163,7 @@ onload = async () => {
             const name = input.getAttribute('data-name');
             const type = input.getAttribute('data-type');
             if (edgeValues[name] && edgeValues[name][type] !== undefined)
-                input.value = edgeValues[name][type];
+                input.placeholder = edgeValues[name][type];
         });
     };
 

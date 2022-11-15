@@ -10,6 +10,7 @@
 body {
     min-height: 100vh;
     background-color: #f5f5f5;
+    position: relative;
 }
 
 .app-wrapper {
@@ -92,8 +93,8 @@ div.button {
 
 .message-container {
     width: 400px;
-    min-height: 204px;
-    position: fixed;
+    min-height: 214px;
+    position: absolute;
     bottom: 1rem;
     left: 50%;
     transform: translateX(-50%);
