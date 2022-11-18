@@ -1,0 +1,17 @@
+[
+    {
+        "brand": "Audi",
+        "model": "A1 Sportback",
+        "colors": ["metallic black", "mat black", "metallic grey", "mat grey", "metallic orange"]
+    },
+    {
+        "brand": "Audi",
+        "model": "A2 Sportback",
+        "colors": ["metallic black", "mat black", "metallic grey", "mat grey", "metallic orange"]
+    },
+    {
+        "brand": "Audi",
+        "model": "A3 Sportback",
+        "colors": ["metallic black", "mat black", "metallic grey", "mat grey", "metallic orange"]
+    }
+]
