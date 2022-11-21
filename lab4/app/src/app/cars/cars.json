@@ -1,17 +1,22 @@
 [
     {
         "brand": "Audi",
-        "model": "A1 Sportback",
+        "model": "A1 Sportback 2022",
         "colors": ["metallic black", "mat black", "metallic grey", "mat grey", "metallic orange"]
     },
     {
         "brand": "Audi",
-        "model": "A2 Sportback",
+        "model": "A2 Sportback 2022",
         "colors": ["metallic black", "mat black", "metallic grey", "mat grey", "metallic orange"]
     },
     {
         "brand": "Audi",
-        "model": "A3 Sportback",
+        "model": "A3 Sportback 2023",
         "colors": ["metallic black", "mat black", "metallic grey", "mat grey", "metallic orange"]
+    },
+    {
+        "brand": "Renault",
+        "model": "Clio 2020",
+        "colors": ["metallic black", "mat black", "metallic grey", "mat grey", "metallic red"]
     }
 ]
