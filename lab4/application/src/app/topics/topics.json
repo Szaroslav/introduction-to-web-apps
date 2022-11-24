@@ -1,0 +1,17 @@
+[
+    {
+        "title": "Introduction",
+        "shortDescription": "Angular is an application-design framework and development platform for creating efficient and sophisticated single-page apps.",
+        "longDescription": "These Angular docs help you learn and use the Angular framework and development platform, from your first application to optimizing complex single-page apps for enterprises. Tutorials and guides include downloadable examples to accelerate your projects."
+    },
+    {
+        "title": "What is Angular?",
+        "shortDescription": "This topic can help you understand Angular: what Angular is, what advantages it provides, and what you might expect as you start to build your applications.",
+        "longDescription": "Angular is a development platform, built on TypeScript. As a platform, Angular includes: a component-based framework for building scalable web applications; a collection of well-integrated libraries that cover a wide variety of features, including routing, forms management, client-server communication, and more; a suite of developer tools to help you develop, build, test, and update your code."
+    },
+    {
+        "title": "Getting started",
+        "shortDescription": "This tutorial introduces you to the essentials of Angular by walking you through building an e-commerce site with a catalog, shopping cart, and check-out form.",
+        "longDescription": "To help you get started right away, this tutorial uses a ready-made application that you can examine and modify interactively on StackBlitz —without having to set up a local work environment. StackBlitz is a browser-based development environment where you can create, save, and share projects using a variety of technologies."
+    }
+]

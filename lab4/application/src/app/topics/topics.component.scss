@@ -1,0 +1,33 @@
+.topics {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    color: #525252;
+}
+
+.output, .topics-container {
+    padding: 2rem;
+    background-color: white;
+    box-shadow: 0 0 16px 2px rgba(0, 0, 0, .1);
+}
+
+.topics-title, .output-title {
+    margin-bottom: 1.5em;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #161616;
+    text-align: center;
+}
+
+.output {
+    min-height: 100px;
+}
+
+.topics-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin: 0;
+    padding: 0;
+    gap: 1em;
+    list-style-type: none;
+}

@@ -21,8 +21,6 @@ export class CarsComponent implements OnInit {
         this.brands = cars
             .map(car => car.brand)
             .filter((brand, i, brands) => brands.indexOf(brand) == i);
-
-        console.log(this.brands);
     }
 
     ngOnInit(): void {

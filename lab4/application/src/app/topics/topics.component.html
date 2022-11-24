@@ -1,0 +1,15 @@
+<div class="topics container">
+    <div class="output" >
+        <p class="output-title">{{ outputTitle }}</p>
+        <p class="output-content">{{ outputContent }}</p>
+    </div>
+
+    <div class="topics-container">
+        <p class="topics-title">Choose a topic</p>
+        <ul class="topics-list">
+            <li *ngFor="let topic of topics" class="topics-item">
+                <app-topic [title]="topic.title" [shortDescription]="topic.shortDescription" [longDescription]="topic.longDescription" (outputUpdateEvent)="renderOutput($event)"></app-topic>
+            </li>
+        </ul>
+    </div>
+</div>
