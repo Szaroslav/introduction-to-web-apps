@@ -1,0 +1,33 @@
+<div class="cars">
+    <div class="cars-select-container">
+        <mat-form-field appearance="fill">
+            <mat-label>Brand</mat-label>
+            <mat-select [(ngModel)]="selectedBrand" (ngModelChange)="onBrandChange()" name="brand">
+                <mat-option *ngFor="let brand of brands" [value]="brand">
+                    {{ brand }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    
+        <mat-form-field appearance="fill">
+            <mat-label>Model</mat-label>
+            <mat-select [(ngModel)]="selectedModel" (ngModelChange)="onModelChange()" name="model" [disabled]="selectedBrand === '' ? true : false">
+                <mat-option *ngFor="let model of models" [value]="model">
+                    {{ model }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    
+        <mat-form-field appearance="fill">
+            <mat-label>Color</mat-label>
+            <mat-select [(ngModel)]="selectedColor" (selectionChange)="onColorChange()" name="color" [disabled]="selectedModel === '' ? true : false">
+                <mat-option *ngFor="let color of colors" [value]="color">
+                    {{ color.slice(0, 1).toUpperCase() + color.slice(1) }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+
+    <p class="car-bmc" *ngIf="selectedColor !== ''">{{ selectedBrand }}, {{ selectedModel }}, {{ selectedColor }}</p>
+    <p class="car-description" *ngIf="selectedColor !== ''">{{ modelDescription }}</p>
+</div>

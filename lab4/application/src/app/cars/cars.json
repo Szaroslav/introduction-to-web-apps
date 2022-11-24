@@ -1,0 +1,26 @@
+[
+    {
+        "brand": "Audi",
+        "model": "A1 Sportback 2022",
+        "colors": ["metallic black", "mat black", "metallic grey", "mat grey", "metallic orange"],
+        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae labore suscipit deleniti iste vitae corrupti est repellat consequuntur ratione eaque!"
+    },
+    {
+        "brand": "Audi",
+        "model": "A2 Sportback 2022",
+        "colors": ["metallic black", "mat black", "metallic grey", "mat grey", "metallic orange"],
+        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae labore suscipit deleniti iste vitae corrupti est repellat consequuntur ratione eaque!"
+    },
+    {
+        "brand": "Audi",
+        "model": "A3 Sportback 2023",
+        "colors": ["metallic black", "mat black", "metallic grey", "mat grey", "metallic orange"],
+        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae labore suscipit deleniti iste vitae corrupti est repellat consequuntur ratione eaque!"
+    },
+    {
+        "brand": "Renault",
+        "model": "Clio 2020",
+        "colors": ["metallic black", "mat black", "metallic grey", "mat grey", "metallic red"],
+        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae labore suscipit deleniti iste vitae corrupti est repellat consequuntur ratione eaque!"
+    }
+]
