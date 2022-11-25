@@ -1,0 +1,14 @@
+<div class="trips">
+    <h3 class="trips-title">Trips</h3>
+    <ul class="trips-list">
+        <li *ngFor="let trip of trips" class="trips-item">
+            <app-trip
+                [data]="trip"
+                [isMostExpensive]="trip.unitPrice === maxUnitPrice"
+                [isCheapest]="trip.unitPrice === minUnitPrice"
+                (deleteDataEvent)="deleteTrip($event)"
+            >
+            </app-trip>
+        </li>
+    </ul>
+</div>

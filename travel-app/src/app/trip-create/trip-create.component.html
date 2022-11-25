@@ -1,0 +1,13 @@
+<div class="trip-create">
+    <form class="trip-create-form" [formGroup]="createForm" (ngSubmit)="onSubmit()">
+        <mat-form-field class="example-form-field">
+            <mat-label>Name</mat-label>
+            <input matInput type="text" formControlName="name">
+        </mat-form-field>
+        <mat-form-field class="example-form-field">
+            <mat-label>Country</mat-label>
+            <input matInput type="text" formControlName="country">
+        </mat-form-field>
+        <button type="submit" mat-raised-button color="primary" [disabled]="!createForm.valid">Primary</button>
+    </form>
+</div>

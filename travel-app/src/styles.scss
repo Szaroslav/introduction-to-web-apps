@@ -1,4 +1,19 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+    --text-color-1: #161616;
+    --text-color-2: #323232;
+    --text-color-3: #525252;
+}
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html, body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    background-color: #f6f6f6;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}

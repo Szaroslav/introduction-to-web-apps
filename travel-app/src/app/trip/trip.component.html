@@ -1,0 +1,22 @@
+<div [ngClass]="['trip', (isMostExpensive ? 'most-expensive' : ''), (isCheapest ? 'cheapest' : '')]">
+    <img src="{{ data.previewImageURL }}" class="trip-preview" alt="Preview">
+    <p class="trip-title content">{{ data.name }}</p>
+    <p class="trip-country content" matTooltip="Destination country"><mat-icon>location_on</mat-icon> {{ data.country | uppercase }}</p>
+    <p class="trip-start-date content" matTooltip="Start date"><mat-icon>event</mat-icon> {{ data.startDate | date }}</p>
+    <p class="trip-end-date content" matTooltip="End date"><mat-icon>event</mat-icon> {{ data.endDate | date }}</p>
+    <p class="trip-unit-price content" matTooltip="Price for 1 person"><mat-icon>payments</mat-icon> {{ data.unitPrice | currency:'GBP' }}</p>
+    <p class="trip-spots-number content" matTooltip="Maximum number of spots"><mat-icon>group</mat-icon> {{ data.spotsNumber }}</p>
+    <p [ngClass]="['trip-spots-reserved', 'content', (data.spotsNumber - availableSpotsNumber >= 10 ? 'green' : 'red')]"  matTooltip="Reserved number of spots">
+        <mat-icon>no_accounts</mat-icon> {{ data.spotsNumber - availableSpotsNumber }}
+    </p>
+    <p class="trip-description content">{{ data.description }}</p>
+    <button mat-raised-button color="{{ availableSpotsNumber > 3 ? 'primary' : 'warn' }}" class="trip-button" (click)="book()" disabled="{{ availableSpotsNumber > 0 ? false : true }}">
+        <mat-icon>add</mat-icon>
+    </button>
+    <button mat-raised-button color="primary" class="trip-button" (click)="unbook()" disabled="{{ availableSpotsNumber < data.spotsNumber ? false : true }}">
+        <mat-icon>remove</mat-icon>
+    </button>
+    <button mat-raised-button color="warn" class="trip-button" (click)="delete()">
+        <mat-icon>delete_sweep</mat-icon> Delete
+    </button>
+</div>

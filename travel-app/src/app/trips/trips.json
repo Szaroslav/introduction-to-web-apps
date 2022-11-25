@@ -1,0 +1,32 @@
+[
+    {
+        "name": "Exotic trip in Płock Police headquarters",
+        "country": "Poland",
+        "startDate": 1672614000000,
+        "endDate": 1673478000000,
+        "unitPrice": 2137,
+        "spotsNumber": 10,
+        "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Adipisci accusamus fugit tempora. Veniam cumque illo modi ex, animi eveniet. Sint facere officiis laboriosam a neque omnis nisi nostrum dolore eos?",
+        "previewImageURL": "./assets/images/plock-police-hq.jpg"
+    },
+    {
+        "name": "Exotic trip in Płock Police headquarters",
+        "country": "Poland",
+        "startDate": 1672614000000,
+        "endDate": 1673478000000,
+        "unitPrice": 5000,
+        "spotsNumber": 10,
+        "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Adipisci accusamus fugit tempora. Veniam cumque illo modi ex, animi eveniet. Sint facere officiis laboriosam a neque omnis nisi nostrum dolore eos?",
+        "previewImageURL": "./assets/images/plock-police-hq.jpg"
+    },
+    {
+        "name": "Exotic trip in Płock Police headquarters",
+        "country": "Poland",
+        "startDate": 1672614000000,
+        "endDate": 1673478000000,
+        "unitPrice": 2137,
+        "spotsNumber": 10,
+        "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Adipisci accusamus fugit tempora. Veniam cumque illo modi ex, animi eveniet. Sint facere officiis laboriosam a neque omnis nisi nostrum dolore eos?",
+        "previewImageURL": "./assets/images/plock-police-hq.jpg"
+    }
+]

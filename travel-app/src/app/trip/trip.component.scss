@@ -1,0 +1,61 @@
+.trip {
+    height: 100%;
+    padding: 2.5rem 1.5rem;
+    background-color: white;
+    color: var(--text-color-3);
+    position: relative;
+}
+
+.trip::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 8px;
+    background-color: transparent;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+}
+ 
+.trip.most-expensive::before {
+    background-color: #f04176;
+}
+
+.trip.cheapest::before {
+    background-color: #3fec96;
+}
+
+.trip-preview {
+    width: 100%;
+    border-top-left-radius: 4rem;
+    border-top-right-radius: 4rem;
+    user-select: none;
+}
+
+.trip-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-color-1);
+}
+
+.trip .content {
+    display: flex;
+    align-items: center;
+}
+
+.trip-spots-reserved {
+    color: white;
+}
+
+.trip-spots-reserved.green {
+    background-color: #3fec96;
+}
+
+.trip-spots-reserved.red {
+    background-color: #f04176;
+}
+
+.trip-button > * {
+    margin: 0;
+}
