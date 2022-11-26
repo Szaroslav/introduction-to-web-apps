@@ -23,4 +23,8 @@ export class TripsComponent {
         this.trips = this.trips.filter(t => t !== trip);
         console.log(trips);
     }
+
+    addTrip(trip: TripData): void {
+        this.trips.push(trip);
+    }
 }

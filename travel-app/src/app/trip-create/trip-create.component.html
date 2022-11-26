@@ -8,6 +8,30 @@
             <mat-label>Country</mat-label>
             <input matInput type="text" formControlName="country">
         </mat-form-field>
-        <button type="submit" mat-raised-button color="primary" [disabled]="!createForm.valid">Primary</button>
+        <mat-form-field class="example-form-field">
+            <mat-label>Start date</mat-label>
+            <input matInput type="date" formControlName="startDate">
+        </mat-form-field>
+        <mat-form-field class="example-form-field">
+            <mat-label>End date</mat-label>
+            <input matInput type="date" formControlName="endDate">
+        </mat-form-field>
+        <mat-form-field class="example-form-field">
+            <mat-label>Unit price</mat-label>
+            <input matInput type="number" formControlName="unitPrice">
+        </mat-form-field>
+        <mat-form-field class="example-form-field">
+            <mat-label>Maximum number of spots</mat-label>
+            <input matInput type="number" formControlName="spotsNumber">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <mat-label>Leave a comment</mat-label>
+            <textarea matInput formControlName="description"></textarea>
+          </mat-form-field>
+        <mat-form-field class="example-form-field">
+            <mat-label>Preview image URL</mat-label>
+            <input matInput type="url" formControlName="previewImageURL">
+        </mat-form-field>
+        <button type="submit" mat-raised-button color="primary" [disabled]="!createForm.valid">Add new trip</button>
     </form>
 </div>

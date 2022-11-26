@@ -1,2 +1,2 @@
-<app-trip-create></app-trip-create>
-<app-trips></app-trips>
+<app-trip-create (newTripEvent)="trips.addTrip($event)"></app-trip-create>
+<app-trips #trips></app-trips>
