@@ -15,6 +15,7 @@ import { MatInputModule } from '@angular/material/input';
 import { TripComponent } from './trip/trip.component';
 import { TripsComponent } from './trips/trips.component';
 import { TripCreateComponent } from './trip-create/trip-create.component';
+import { TripRateComponent } from './trip-rate/trip-rate.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { TripCreateComponent } from './trip-create/trip-create.component';
         AppComponent,
         TripsComponent,
         TripComponent,
-        TripCreateComponent
+        TripCreateComponent,
+        TripRateComponent
     ],
     imports: [
         BrowserModule,

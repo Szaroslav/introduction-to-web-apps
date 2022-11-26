@@ -2,6 +2,7 @@
     <img src="{{ data.previewImageURL }}" class="trip-preview" alt="Preview">
     <p class="trip-title content">{{ data.name }}</p>
     <p class="trip-country content" matTooltip="Destination country"><mat-icon>location_on</mat-icon> {{ data.country | uppercase }}</p>
+    <app-trip-rate></app-trip-rate>
     <p class="trip-start-date content" matTooltip="Start date"><mat-icon>event</mat-icon> {{ data.startDate | date }}</p>
     <p class="trip-end-date content" matTooltip="End date"><mat-icon>event</mat-icon> {{ data.endDate | date }}</p>
     <p class="trip-unit-price content" matTooltip="Price for 1 person"><mat-icon>payments</mat-icon> {{ data.unitPrice | currency:'GBP' }}</p>

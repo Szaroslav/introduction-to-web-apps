@@ -21,7 +21,6 @@ export class TripsComponent {
 
     deleteTrip(trip: TripData): void {
         this.trips = this.trips.filter(t => t !== trip);
-        console.log(trips);
     }
 
     addTrip(trip: TripData): void {
