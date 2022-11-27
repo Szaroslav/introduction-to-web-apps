@@ -1,4 +1,5 @@
 <div class="trips-filter">
+    <h3 class="trips-filter-title">Filters</h3>
     <form class="trips-filter-form" [formGroup]="filterForm">
         <div class="trips-filter-item">
             <mat-label>Country</mat-label>
@@ -9,7 +10,7 @@
                 </mat-select>
             </mat-form-field>
         </div>
-        <div class="trips-filter-item">
+        <div class="trips-filter-rating trips-filter-item">
             <mat-label>Rating</mat-label>
             <mat-button-toggle-group formControlName="ratings" multiple>
                 <mat-button-toggle *ngFor="let rating of ratings" [value]="rating">

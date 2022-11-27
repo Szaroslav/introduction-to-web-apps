@@ -1,0 +1,28 @@
+.trips-filter {
+    padding: 1rem;
+}
+
+.trips-filter-item {
+    display: flex;
+    flex-direction: column;
+    padding: .5em 0;
+}
+
+.trips-filter-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.trips-filter-rating {
+    & .mat-button-toggle-group {
+        align-self: start;
+    }
+
+    & .mat-icon {
+        width: 20px;
+        height: 20px;
+        margin-left: -2px;
+        font-size: 18px;
+        color: #f5bd45;
+    }
+} 
