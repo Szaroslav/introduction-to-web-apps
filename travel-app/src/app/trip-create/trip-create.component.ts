@@ -27,8 +27,8 @@ export class TripCreateComponent {
         const newTrip: TripData = {
             name: c.name.value!,
             country: c.country.value!,
-            startDate: new Date(c.startDate.value!).getTime(),
-            endDate: new Date(c.endDate.value!).getTime(),
+            startDate: c.startDate.value?.valueOf(),
+            endDate: c.endDate.value?.valueOf(),
             unitPrice: parseFloat(c.unitPrice.value!),
             spotsNumber: parseInt(c.spotsNumber.value!),
             description: c.description.value!,
@@ -36,6 +36,5 @@ export class TripCreateComponent {
         };
 
         this.newTripEvent.emit(newTrip);
-        console.log(newTrip);
     }
 }

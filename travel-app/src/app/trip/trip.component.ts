@@ -3,8 +3,8 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export interface TripData {
     name: string;
     country: string;
-    startDate: number;
-    endDate: number;
+    startDate: any;
+    endDate: any;
     unitPrice: number;
     spotsNumber: number;
     description: string;
