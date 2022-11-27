@@ -8,7 +8,7 @@ import { Component, OnInit, Input, ViewChild } from '@angular/core';
 
 export class TripRateComponent implements OnInit {
     @Input() RATING_STARS_NUMBER!: number;
-    @ViewChild('tripRating') tripElement: any;
+    @ViewChild('tripIconsContainer') tripIconsContainer: any;
     stars: number[] = [];
     highlightedElements: HTMLElement[] = [];
     rating = 0;
@@ -18,7 +18,7 @@ export class TripRateComponent implements OnInit {
     }
 
     highlight(index: number): void {
-        Array.from(this.tripElement.nativeElement.children)
+        Array.from(this.tripIconsContainer.nativeElement.children)
             .filter((_, i) => i >= this.rating && i <= index)
             .forEach(el => {
                 this.highlightedElements.push(<HTMLElement> el);
@@ -37,7 +37,7 @@ export class TripRateComponent implements OnInit {
     }
 
     onMouseIn(e: Event): void {
-        this.highlight(Array.from(this.tripElement.nativeElement.children).indexOf(e.target));
+        this.highlight(Array.from(this.tripIconsContainer.nativeElement.children).indexOf(e.target));
     }
 
     onMouseOut(): void {
@@ -45,7 +45,7 @@ export class TripRateComponent implements OnInit {
     }
 
     onClick(e: Event): void {
-        this.rating = Array.from(this.tripElement.nativeElement.children).indexOf(e.target) + 1;
+        this.rating = Array.from(this.tripIconsContainer.nativeElement.children).indexOf(e.target) + 1;
         this.unhighlight();
     }
 }

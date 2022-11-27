@@ -8,9 +8,9 @@ import { TripData } from './trip/trip.component';
 export class TripsFilterPipe implements PipeTransform {
     transform(value: TripData[], filters: any): TripData[] {
         return value.filter(v => {
-            if (filters.countries && !filters.countries.includes(v.country))
+            if (filters.countries && filters.countries.length && !filters.countries.includes(v.country))
                 return false;
-            // if (filters.ratings)
+            // if (filters.ratings && filters.ratings.length)
             //     return filters.ratings.includes(v.country);
             if (filters.price.lowest && v.unitPrice < filters.price.lowest)
                 return false;

@@ -1,36 +1,53 @@
 .trip {
-    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
     padding: 2.5rem 1.5rem;
     background-color: white;
     color: var(--text-color-3);
+    box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, .05);
     position: relative;
-}
 
-.trip::before {
-    content: '';
-    display: block;
-    width: 100%;
-    height: 8px;
-    background-color: transparent;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    z-index: 1;
-}
- 
-.trip.most-expensive::before {
-    background-color: #f04176;
-}
+    &::before {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 8px;
+        background-color: transparent;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        z-index: 1;
+    }
+     
+    &.most-expensive::before {
+        background-color: #f50057;
+    }
+    
+    &.cheapest::before {
+        background-color: #3f51b5;
+    }
 
-.trip.cheapest::before {
-    background-color: #3fec96;
+    & .content {
+        display: flex;
+        align-items: center;
+    }
+
+    & .f-container {
+        display: flex;
+        align-items: center;
+        gap: .5em;
+    }
 }
 
 .trip-preview {
-    width: 100%;
-    border-top-left-radius: 4rem;
-    border-top-right-radius: 4rem;
+    width: 300px;
+    border-radius: 2rem;
     user-select: none;
+}
+
+.trip-content-container * {
+    margin-bottom: 0;
 }
 
 .trip-title {
@@ -39,23 +56,64 @@
     color: var(--text-color-1);
 }
 
-.trip .content {
-    display: flex;
-    align-items: center;
+.trip-country {
+    padding: .25em .5em;
+    background-color: #3f51b5;
+    color: #f6f6f6;
+    border-radius: .5em;
 }
 
 .trip-spots-reserved {
     color: white;
+    padding: .15em .5em;
+    border-radius: .5em;
 }
 
 .trip-spots-reserved.green {
-    background-color: #3fec96;
+    background-color: #3f51b5;
 }
 
 .trip-spots-reserved.red {
-    background-color: #f04176;
+    background-color: #f50057;
+}
+
+.trip-description {
+    margin-top: 1.5em;
+    color: var(--text-color-4);
+}
+
+.trip-buttons-container {
+    display: flex;
+    gap: .75rem;
+}
+
+.trip-button {
+    width: 48px;
+    min-width: 48px;
+    height: 48px;
+    padding: 0;
 }
 
 .trip-button > * {
     margin: 0;
+}
+
+@media only screen and (max-width: 1280px) {
+    .trip-buttons-container {
+        flex-direction: column;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .trip-preview {
+        width: 100%;
+    }
+    
+    .trip {
+        flex-direction: column;
+    }
+
+    .trip-buttons-container {
+        flex-direction: row;
+    }
 }

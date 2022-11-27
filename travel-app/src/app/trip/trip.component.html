@@ -1,23 +1,36 @@
 <div [ngClass]="['trip', (isMostExpensive ? 'most-expensive' : ''), (isCheapest ? 'cheapest' : '')]">
     <img src="{{ data.previewImageURL }}" class="trip-preview" alt="Preview">
-    <p class="trip-title content">{{ data.name }}</p>
-    <p class="trip-country content" matTooltip="Destination country"><mat-icon>location_on</mat-icon> {{ data.country | uppercase }}</p>
-    <app-trip-rate [RATING_STARS_NUMBER]="RATING_STARS_NUMBER"></app-trip-rate>
-    <p class="trip-start-date content" matTooltip="Start date"><mat-icon>event</mat-icon> {{ data.startDate | date }}</p>
-    <p class="trip-end-date content" matTooltip="End date"><mat-icon>event</mat-icon> {{ data.endDate | date }}</p>
-    <p class="trip-unit-price content" matTooltip="Price for 1 person"><mat-icon>payments</mat-icon> {{ data.unitPrice | currency:'GBP' }}</p>
-    <p class="trip-spots-number content" matTooltip="Maximum number of spots"><mat-icon>group</mat-icon> {{ data.spotsNumber }}</p>
-    <p [ngClass]="['trip-spots-reserved', 'content', (data.spotsNumber - availableSpotsNumber >= 10 ? 'green' : 'red')]"  matTooltip="Reserved number of spots">
-        <mat-icon>no_accounts</mat-icon> {{ data.spotsNumber - availableSpotsNumber }}
-    </p>
-    <p class="trip-description content">{{ data.description }}</p>
-    <button mat-raised-button color="{{ availableSpotsNumber > 3 ? 'primary' : 'warn' }}" class="trip-button" (click)="book()" disabled="{{ availableSpotsNumber > 0 ? false : true }}">
-        <mat-icon>add</mat-icon>
-    </button>
-    <button mat-raised-button color="primary" class="trip-button" (click)="unbook()" disabled="{{ availableSpotsNumber < data.spotsNumber ? false : true }}">
-        <mat-icon>remove</mat-icon>
-    </button>
-    <button mat-raised-button color="warn" class="trip-button" (click)="delete()">
-        <mat-icon>delete_sweep</mat-icon> Delete
-    </button>
+    
+    <div class="trip-content-container">
+        <div class="trip-title-container f-container">
+            <p class="trip-title content">{{ data.name }}</p>
+            <p class="trip-country content" matTooltip="Destination country"><mat-icon>location_on</mat-icon> {{ data.country | uppercase }}</p>
+        </div>
+        <app-trip-rate [RATING_STARS_NUMBER]="RATING_STARS_NUMBER"></app-trip-rate>
+        <div class="trip-date-container f-container">
+            <p class="trip-start-date content" matTooltip="Start date"><mat-icon>event</mat-icon> {{ data.startDate | date }}</p>
+            <span class="trip-date-separator">―</span>
+            <p class="trip-end-date content" matTooltip="End date"><mat-icon>event</mat-icon> {{ data.endDate | date }}</p>
+        </div>
+        <div class="trip-info-container f-container">
+            <p class="trip-unit-price content" matTooltip="Price for 1 person"><mat-icon>payments</mat-icon> {{ data.unitPrice | currency:'GBP' }}</p>
+            <p class="trip-spots-number content" matTooltip="Maximum number of spots"><mat-icon>group</mat-icon> {{ data.spotsNumber }}</p>
+            <p [ngClass]="['trip-spots-reserved', 'content', (data.spotsNumber - availableSpotsNumber >= 10 ? 'green' : 'red')]"  matTooltip="Reserved number of spots">
+                <mat-icon>no_accounts</mat-icon> {{ data.spotsNumber - availableSpotsNumber }}
+            </p>
+        </div>
+        <p class="trip-description content">{{ data.description }}</p>
+    </div>
+    
+    <div class="trip-buttons-container">
+        <button mat-raised-button color="{{ availableSpotsNumber > 3 ? 'primary' : 'warn' }}" class="trip-button" (click)="book()" disabled="{{ availableSpotsNumber > 0 ? false : true }}">
+            <mat-icon>add</mat-icon>
+        </button>
+        <button mat-raised-button color="primary" class="trip-button" (click)="unbook()" disabled="{{ availableSpotsNumber < data.spotsNumber ? false : true }}">
+            <mat-icon>remove</mat-icon>
+        </button>
+        <button mat-raised-button color="warn" class="trip-button" (click)="delete()">
+            <mat-icon>delete_sweep</mat-icon>
+        </button>
+    </div>
 </div>

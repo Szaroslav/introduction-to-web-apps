@@ -11,7 +11,7 @@ import trips from './trips.json';
 export class TripsComponent {
     RATING_STARS_NUMBER = 5;
     trips: TripData[] = trips;
-    filters = {};
+    filters = {countries: [], ratings: [], price: {lowest: null, highest: null}, date: {start: null, end: null}};
     maxUnitPrice = Number.MIN_SAFE_INTEGER;
     minUnitPrice = Number.MAX_SAFE_INTEGER;
 
