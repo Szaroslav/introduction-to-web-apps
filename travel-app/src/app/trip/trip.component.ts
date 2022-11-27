@@ -18,6 +18,7 @@ export interface TripData {
 })
 
 export class TripComponent implements OnInit { 
+    @Input() RATING_STARS_NUMBER!: number;
     @Input() data!: TripData;
     @Input() isMostExpensive!: boolean;
     @Input() isCheapest!: boolean;

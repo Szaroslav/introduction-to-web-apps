@@ -1,8 +1,11 @@
 <div class="trip-rating" #tripRating>
-    <mat-icon class="trip-rating-icon" (mouseover)="onMouseIn($event)" (mouseout)="onMouseOut()" (click)="onClick($event)">star</mat-icon>
-    <mat-icon class="trip-rating-icon" (mouseover)="onMouseIn($event)" (mouseout)="onMouseOut()" (click)="onClick($event)">star</mat-icon>
-    <mat-icon class="trip-rating-icon" (mouseover)="onMouseIn($event)" (mouseout)="onMouseOut()" (click)="onClick($event)">star</mat-icon>
-    <mat-icon class="trip-rating-icon" (mouseover)="onMouseIn($event)" (mouseout)="onMouseOut()" (click)="onClick($event)">star</mat-icon>
-    <mat-icon class="trip-rating-icon" (mouseover)="onMouseIn($event)" (mouseout)="onMouseOut()" (click)="onClick($event)">star</mat-icon>
+    <mat-icon
+        *ngFor="let _ of stars"
+        class="trip-rating-icon"
+        (mouseover)="onMouseIn($event)"
+        (mouseout)="onMouseOut()"
+        (click)="onClick($event)"
+    >star
+    </mat-icon>
     <mat-icon class="trip-rating-close" *ngIf="rating > 0" (click)="reset()">close</mat-icon>
 </div>

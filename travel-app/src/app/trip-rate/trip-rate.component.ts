@@ -1,4 +1,4 @@
-import { Component, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 
 @Component({
     selector: 'app-trip-rate',
@@ -6,10 +6,16 @@ import { Component, ViewChild, ElementRef } from '@angular/core';
     styleUrls: ['./trip-rate.component.scss']
 })
 
-export class TripRateComponent {
+export class TripRateComponent implements OnInit {
+    @Input() RATING_STARS_NUMBER!: number;
     @ViewChild('tripRating') tripElement: any;
+    stars: number[] = [];
     highlightedElements: HTMLElement[] = [];
     rating = 0;
+
+    ngOnInit(): void {
+        this.stars = Array(this.RATING_STARS_NUMBER).fill(0);
+    }
 
     highlight(index: number): void {
         Array.from(this.tripElement.nativeElement.children)

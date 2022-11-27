@@ -1,0 +1,41 @@
+<div class="trips-filter">
+    <form class="trips-filter-form" [formGroup]="filterForm">
+        <div class="trips-filter-item">
+            <mat-label>Country</mat-label>
+            <mat-form-field  appearance="fill">
+                <mat-label>Select countries</mat-label>
+                <mat-select formControlName="countries" multiple>
+                    <mat-option *ngFor="let country of countries" [value]="country">{{ country }}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="trips-filter-item">
+            <mat-label>Rating</mat-label>
+            <mat-button-toggle-group formControlName="ratings" multiple>
+                <mat-button-toggle *ngFor="let rating of ratings" [value]="rating">
+                    {{ rating }} <mat-icon>star</mat-icon>
+                </mat-button-toggle>
+            </mat-button-toggle-group>
+        </div>
+        <div class="trips-filter-item">
+            <mat-label>Price</mat-label>
+            <mat-slider formGroupName="price" [min]="price.lowest" [max]="price.highest" step="1" discrete>
+                <input matSliderStartThumb formControlName="lowest">
+                <input matSliderEndThumb formControlName="highest">
+            </mat-slider>
+        </div>
+        <div class="trips-filter-item">
+            <mat-label>Date</mat-label>
+            <mat-form-field appearance="fill">
+                <mat-label>Enter a date range</mat-label>
+                <mat-date-range-input formGroupName="date" [rangePicker]="picker">
+                    <input formControlName="start" matStartDate placeholder="Start date">
+                    <input formControlName="end" matEndDate placeholder="End date">
+                </mat-date-range-input>
+                <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-date-range-picker #picker></mat-date-range-picker>
+            </mat-form-field>
+        </div>
+    </form>
+</div>

@@ -11,11 +11,18 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatSliderModule } from '@angular/material/slider';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatSelectModule } from '@angular/material/select';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatMomentDateModule } from '@angular/material-moment-adapter';
 
 import { TripComponent } from './trip/trip.component';
 import { TripsComponent } from './trips/trips.component';
 import { TripCreateComponent } from './trip-create/trip-create.component';
 import { TripRateComponent } from './trip-rate/trip-rate.component';
+import { TripsFilterComponent } from './trips-filter/trips-filter.component';
+import { TripsFilterPipe } from './trips-filter.pipe';
 
 
 @NgModule({
@@ -24,8 +31,11 @@ import { TripRateComponent } from './trip-rate/trip-rate.component';
         TripsComponent,
         TripComponent,
         TripCreateComponent,
-        TripRateComponent
+        TripRateComponent,
+        TripsFilterComponent,
+        TripsFilterPipe
     ],
+
     imports: [
         BrowserModule,
         AppRoutingModule,
@@ -35,9 +45,17 @@ import { TripRateComponent } from './trip-rate/trip-rate.component';
         MatTooltipModule,
         MatButtonModule,
         MatFormFieldModule,
-        MatInputModule
+        MatInputModule,
+        MatSliderModule,
+        MatButtonToggleModule,
+        MatSelectModule,
+        MatDatepickerModule,
+        MatMomentDateModule
     ],
-    providers: [],
+    
+    providers: [
+        MatDatepickerModule
+    ],
     bootstrap: [AppComponent]
 })
 

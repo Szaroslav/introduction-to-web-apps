@@ -1,5 +1,5 @@
-import { TripData } from './../trip/trip.component';
 import { Component } from '@angular/core';
+import { TripData } from './../trip/trip.component';
 import trips from './trips.json';
 
 @Component({
@@ -9,7 +9,9 @@ import trips from './trips.json';
 })
 
 export class TripsComponent {
-    trips = trips;
+    RATING_STARS_NUMBER = 5;
+    trips: TripData[] = trips;
+    filters = {};
     maxUnitPrice = Number.MIN_SAFE_INTEGER;
     minUnitPrice = Number.MAX_SAFE_INTEGER;
 
@@ -25,5 +27,11 @@ export class TripsComponent {
 
     addTrip(trip: TripData): void {
         this.trips.push(trip);
+    }
+
+    onFilter(values: any): void {
+        this.filters = values;
+        // this.filtersWithoutCountries = Object.assign(this.filtersWithoutCountries, this.filters);
+        // this.filtersWithoutCountries.countries = [];
     }
 }
