@@ -1,0 +1,11 @@
+<div class="posts">
+    <div class="posts-add">
+        <app-post-add></app-post-add>
+    </div>
+    <ul class="posts-list">
+        <li *ngFor="let post of posts" class="posts-item">
+            <p class="post-title">{{ post.title }}</p>
+            <p class="post-content">{{ post.body }}</p>
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,10 @@
+<div class="photos">
+    <ul class="photos-list">
+        <li *ngFor="let photo of photos" class="photos-item">
+            <a class="navigation-link" [routerLink]="['preview', photo.id]">
+                <img src="{{ photo.thumbnailUrl }}" alt="Thumbnail">
+            </a>
+        </li>
+    </ul>
+    <router-outlet></router-outlet>
+</div>

@@ -1,0 +1,19 @@
+<form #postAddForm class="posts-add-form" (ngSubmit)="onSubmit(); postAddForm.reset()">
+    <mat-form-field class="posts-form-field">
+        <mat-label>User ID</mat-label>
+        <input matInput type="number" name="userId" placeholder="Ex. 5" [(ngModel)]="post.userId">
+    </mat-form-field>
+    <mat-form-field class="posts-form-field">
+        <mat-label>Post ID</mat-label>
+        <input matInput type="number" name="id" placeholder="Ex. 2137" [(ngModel)]="post.id">
+    </mat-form-field>
+    <mat-form-field class="posts-form-field">
+        <mat-label>Title</mat-label>
+        <input matInput type="text" name="title" placeholder="Ex. Big Foot is not that big" [(ngModel)]="post.title">
+    </mat-form-field>
+    <mat-form-field class="posts-form-field">
+        <mat-label>Content</mat-label>
+        <textarea matInput name="body" placeholder="Ex. It makes me feel..." [(ngModel)]="post.body"></textarea>
+    </mat-form-field>
+    <button mat-flat-button type="submit" color="primary">Create new post</button>
+</form>
