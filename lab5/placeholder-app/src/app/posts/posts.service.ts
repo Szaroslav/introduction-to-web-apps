@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
+import { BehaviorSubject, Subject, Observable, of } from 'rxjs';
 
 import { Post } from './post';
 
@@ -10,7 +10,9 @@ import { Post } from './post';
 
 export class PostsService {
     private postsURL = 'https://jsonplaceholder.typicode.com/posts';
-    private posts: Post[] = [];
+    private post = new Subject<Post>();
+
+    newPost$ = this.post.asObservable();
 
     constructor(private http: HttpClient) {}
 
@@ -22,6 +24,6 @@ export class PostsService {
         this.http.post<Post>(this.postsURL, post, {
             headers: new HttpHeaders({ 'Content-Type': 'application/json; charset=UTF-8' })
         });
-        this.posts.push(post);
+        this.post.next(Object.assign({}, post));
     }
 }

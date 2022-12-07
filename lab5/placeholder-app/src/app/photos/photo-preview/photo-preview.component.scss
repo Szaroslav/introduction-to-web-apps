@@ -1,0 +1,31 @@
+.photo-preview {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    background-color: rgba(0, 0, 0, .4);
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    & &-wrapper {
+        display: flex;
+        flex-direction: column;
+        padding: 2rem;
+    }
+
+    & &-close {
+        margin: 0 auto;
+        color: white;
+        text-align: center;
+
+        & mat-icon {
+            width: 32px;
+            height: 32px;
+            font-size: 32px;
+        }
+    }
+
+    & img {
+        max-width: 100%;
+    }
+}

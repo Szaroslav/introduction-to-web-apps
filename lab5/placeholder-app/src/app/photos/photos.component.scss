@@ -1,9 +1,35 @@
 .photos {
     padding: 2rem;
-    
+
     & &-list {
         display: grid;
         grid-template-columns: repeat(6, 1fr);
+        padding: 0;
         list-style-type: none;
+    }
+
+    & &-item {
+        display: flex;
+        justify-content: center;
+
+        & img {
+            max-width: 100%;
+        }
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .photos {
+        & &-list {
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .photos {
+        & &-list {
+            grid-template-columns: repeat(2, 1fr);
+        }
     }
 }

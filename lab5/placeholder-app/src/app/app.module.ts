@@ -8,13 +8,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { PostsComponent } from './posts/posts.component';
-import { PhotosComponent } from './photos/photos.component';
 import { PostAddComponent } from './posts/post-add/post-add.component';
+import { PhotosComponent } from './photos/photos.component';
+import { PhotoPreviewComponent } from './photos/photo-preview/photo-preview.component';
 
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
-import { PhotoPreviewComponent } from './photos/photo-preview/photo-preview.component';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
     declarations: [
@@ -31,6 +32,7 @@ import { PhotoPreviewComponent } from './photos/photo-preview/photo-preview.comp
         HttpClientModule,
         FormsModule,
         BrowserAnimationsModule,
+        MatIconModule,
         MatFormFieldModule,
         MatInputModule,
         MatButtonModule

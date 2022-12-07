@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { PostsService } from './posts.service';
 import { Post } from './post';
 
@@ -9,15 +9,14 @@ import { Post } from './post';
 })
 
 export class PostsComponent implements OnInit {
-	posts: Post[] = [];
+	@Input() posts: Post[] = [];
 
 	constructor(private service: PostsService) {}
 
 	ngOnInit(): void {
-		this.getPosts();
-	}
-
-	getPosts(): void {
-		this.service.getPosts().subscribe(posts => this.posts = posts);
+		this.service.getPosts().subscribe(posts => this.posts = posts.map(post => new Post(
+			post.id, post.userId, post.title[0].toUpperCase() + post.title.slice(1), post.body[0].toUpperCase() + post.body.slice(1)
+		)));
+		this.service.newPost$.subscribe(post => this.posts.push(post));
 	}
 }

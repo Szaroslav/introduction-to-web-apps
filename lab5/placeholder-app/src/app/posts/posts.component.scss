@@ -4,6 +4,17 @@
     & &-list {
         display: flex;
         flex-direction: column;
+        gap: 1.5rem;
+        padding: 0;
         list-style-type: none;
+    }
+
+    & &-item {
+        border-bottom: 1px solid #4e4e4e;
+    }
+    
+    & .post-title {
+        color: #f0f0f0;
+        font-size: 1rem;
     }
 }
