@@ -2,6 +2,7 @@ import { AppComponent } from './app.component';
 
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
+import { HttpClientJsonpModule, HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -17,28 +18,34 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
 
+import { HomeComponent } from './home/home.component';
 import { TripComponent } from './trip/trip.component';
 import { TripsComponent } from './trips/trips.component';
 import { TripCreateComponent } from './trip-create/trip-create.component';
 import { TripRateComponent } from './trip-rate/trip-rate.component';
 import { TripsFilterComponent } from './trips-filter/trips-filter.component';
 import { TripsFilterPipe } from './trips-filter.pipe';
+import { NavigationComponent } from './navigation/navigation.component';
 
 
 @NgModule({
     declarations: [
         AppComponent,
+        HomeComponent,
         TripsComponent,
         TripComponent,
         TripCreateComponent,
         TripRateComponent,
         TripsFilterComponent,
-        TripsFilterPipe
+        TripsFilterPipe,
+        NavigationComponent
     ],
 
     imports: [
         BrowserModule,
         AppRoutingModule,
+        HttpClientModule,
+        HttpClientJsonpModule,
         ReactiveFormsModule,
         BrowserAnimationsModule,
         MatIconModule,
@@ -56,6 +63,7 @@ import { TripsFilterPipe } from './trips-filter.pipe';
     providers: [
         MatDatepickerModule
     ],
+
     bootstrap: [AppComponent]
 })
 
