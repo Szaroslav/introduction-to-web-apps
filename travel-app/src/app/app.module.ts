@@ -1,5 +1,3 @@
-import { AppComponent } from './app.component';
-
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientJsonpModule, HttpClientModule } from '@angular/common/http';
@@ -18,6 +16,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
 
+import { AppComponent } from './app.component';
+import { NavigationComponent } from './navigation/navigation.component';
 import { HomeComponent } from './home/home.component';
 import { TripComponent } from './trip/trip.component';
 import { TripsComponent } from './trips/trips.component';
@@ -25,12 +25,13 @@ import { TripCreateComponent } from './trip-create/trip-create.component';
 import { TripRateComponent } from './trip-rate/trip-rate.component';
 import { TripsFilterComponent } from './trips-filter/trips-filter.component';
 import { TripsFilterPipe } from './trips-filter.pipe';
-import { NavigationComponent } from './navigation/navigation.component';
+import { CartComponent } from './cart/cart.component';
 
 
 @NgModule({
     declarations: [
         AppComponent,
+        NavigationComponent,
         HomeComponent,
         TripsComponent,
         TripComponent,
@@ -38,7 +39,7 @@ import { NavigationComponent } from './navigation/navigation.component';
         TripRateComponent,
         TripsFilterComponent,
         TripsFilterPipe,
-        NavigationComponent
+        CartComponent
     ],
 
     imports: [

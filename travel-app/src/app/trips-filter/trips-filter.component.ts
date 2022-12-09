@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import { TripData } from '../trip/trip.component';
+import { Trip } from '../trip/trip';
 
 @Component({
     selector: 'app-trips-filter',
@@ -10,7 +10,7 @@ import { TripData } from '../trip/trip.component';
 
 export class TripsFilterComponent implements OnInit {
     @Input() RATING_STARS_NUMBER!: number;
-    @Input() trips!: TripData[];
+    @Input() trips!: Trip[];
     @Input() price!: {lowest: number, highest: number};
     @Output() filterEvent = new EventEmitter<any>();
 

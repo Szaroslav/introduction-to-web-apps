@@ -15,18 +15,18 @@
         <div class="trip-info-container f-container">
             <p class="trip-unit-price content" matTooltip="Price for 1 person"><mat-icon>payments</mat-icon> {{ data.unitPrice | currency:'GBP' }}</p>
             <p class="trip-spots-number content" matTooltip="Maximum number of spots"><mat-icon>group</mat-icon> {{ data.spotsNumber }}</p>
-            <p [ngClass]="['trip-spots-reserved', 'content', (data.spotsNumber - availableSpotsNumber >= 10 ? 'green' : 'red')]"  matTooltip="Reserved number of spots">
-                <mat-icon>no_accounts</mat-icon> {{ data.spotsNumber - availableSpotsNumber }}
+            <p [ngClass]="['trip-spots-reserved', 'content', (data.purchasedSpotsNumber + reservedSpotsNumber >= 10 ? 'green' : 'red')]"  matTooltip="Reserved number of spots">
+                <mat-icon>no_accounts</mat-icon> {{ data.purchasedSpotsNumber + reservedSpotsNumber }}
             </p>
         </div>
         <p class="trip-description content">{{ data.description }}</p>
     </div>
     
     <div class="trip-buttons-container">
-        <button mat-raised-button color="{{ availableSpotsNumber > 3 ? 'primary' : 'warn' }}" class="trip-button" (click)="book()" disabled="{{ availableSpotsNumber > 0 ? false : true }}">
+        <button mat-raised-button color="{{ availableSpotsNumber - reservedSpotsNumber > 3 ? 'primary' : 'warn' }}" class="trip-button" (click)="book()" disabled="{{ reservedSpotsNumber < availableSpotsNumber ? false : true }}">
             <mat-icon>add</mat-icon>
         </button>
-        <button mat-raised-button color="primary" class="trip-button" (click)="unbook()" disabled="{{ availableSpotsNumber < data.spotsNumber ? false : true }}">
+        <button mat-raised-button color="primary" class="trip-button" (click)="unbook()" disabled="{{ reservedSpotsNumber > 0 ? false : true }}">
             <mat-icon>remove</mat-icon>
         </button>
         <button mat-raised-button color="warn" class="trip-button" (click)="delete()">

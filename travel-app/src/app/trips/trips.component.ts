@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { TripData } from './../trip/trip.component';
+import { Trip } from './../trip/trip';
 import trips from './trips.json';
 
 @Component({
@@ -10,7 +10,7 @@ import trips from './trips.json';
 
 export class TripsComponent {
     RATING_STARS_NUMBER = 5;
-    trips: TripData[] = trips;
+    trips: Trip[] = trips;
     filters = {countries: [], ratings: [], price: {lowest: null, highest: null}, date: {start: null, end: null}};
     maxUnitPrice = Number.MIN_SAFE_INTEGER;
     minUnitPrice = Number.MAX_SAFE_INTEGER;
@@ -21,11 +21,11 @@ export class TripsComponent {
         this.minUnitPrice = Math.min(this.minUnitPrice, ...prices);
     }
 
-    deleteTrip(trip: TripData): void {
+    deleteTrip(trip: Trip): void {
         this.trips = this.trips.filter(t => t !== trip);
     }
 
-    addTrip(trip: TripData): void {
+    addTrip(trip: Trip): void {
         this.trips.push(trip);
     }
 

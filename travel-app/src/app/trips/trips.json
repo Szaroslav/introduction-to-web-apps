@@ -6,6 +6,7 @@
         "endDate": 1673478000000,
         "unitPrice": 2137,
         "spotsNumber": 10,
+        "purchasedSpotsNumber": 2,
         "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Adipisci accusamus fugit tempora. Veniam cumque illo modi ex, animi eveniet. Sint facere officiis laboriosam a neque omnis nisi nostrum dolore eos?",
         "previewImageURL": "./assets/images/plock-police-hq.jpg"
     },
@@ -16,6 +17,7 @@
         "endDate": 1673478000000,
         "unitPrice": 7500,
         "spotsNumber": 10,
+        "purchasedSpotsNumber": 0,
         "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Adipisci accusamus fugit tempora. Veniam cumque illo modi ex, animi eveniet. Sint facere officiis laboriosam a neque omnis nisi nostrum dolore eos?",
         "previewImageURL": "./assets/images/mountain-hills.jpg"
     },
@@ -26,6 +28,7 @@
         "endDate": 1673478000000,
         "unitPrice": 5000,
         "spotsNumber": 10,
+        "purchasedSpotsNumber": 2,
         "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Adipisci accusamus fugit tempora. Veniam cumque illo modi ex, animi eveniet. Sint facere officiis laboriosam a neque omnis nisi nostrum dolore eos?",
         "previewImageURL": "./assets/images/plock-police-hq.jpg"
     },
@@ -36,6 +39,7 @@
         "endDate": 1673478000000,
         "unitPrice": 2137,
         "spotsNumber": 10,
+        "purchasedSpotsNumber": 0,
         "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Adipisci accusamus fugit tempora. Veniam cumque illo modi ex, animi eveniet. Sint facere officiis laboriosam a neque omnis nisi nostrum dolore eos?",
         "previewImageURL": "./assets/images/plock-police-hq.jpg"
     },
@@ -46,6 +50,7 @@
         "endDate": 1673478000000,
         "unitPrice": 3500,
         "spotsNumber": 10,
+        "purchasedSpotsNumber": 4,
         "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Adipisci accusamus fugit tempora. Veniam cumque illo modi ex, animi eveniet. Sint facere officiis laboriosam a neque omnis nisi nostrum dolore eos?",
         "previewImageURL": "./assets/images/mountain-hills.jpg"
     }

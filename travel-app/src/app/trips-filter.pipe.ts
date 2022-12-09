@@ -1,12 +1,12 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { TripData } from './trip/trip.component';
+import { Trip } from './trip/trip';
 
 @Pipe({
     name: 'tripsFilter'
 })
 
 export class TripsFilterPipe implements PipeTransform {
-    transform(value: TripData[], filters: any): TripData[] {
+    transform(value: Trip[], filters: any): Trip[] {
         return value.filter(v => {
             if (filters.countries && filters.countries.length && !filters.countries.includes(v.country))
                 return false;

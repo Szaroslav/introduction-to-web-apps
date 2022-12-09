@@ -1,6 +1,6 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { TripData } from '../trip/trip.component';
+import { Trip } from '../trip/trip';
 
 @Component({
     selector: 'app-trip-create',
@@ -9,7 +9,7 @@ import { TripData } from '../trip/trip.component';
 })
 
 export class TripCreateComponent {
-    @Output() newTripEvent = new EventEmitter<TripData>();
+    @Output() newTripEvent = new EventEmitter<Trip>();
 
     createForm = new FormGroup({
         name: new FormControl('', [Validators.required]),
@@ -24,16 +24,17 @@ export class TripCreateComponent {
 
     onSubmit(): void {
         const c = this.createForm.controls;
-        const newTrip: TripData = {
-            name: c.name.value!,
-            country: c.country.value!,
-            startDate: c.startDate.value?.valueOf(),
-            endDate: c.endDate.value?.valueOf(),
-            unitPrice: parseFloat(c.unitPrice.value!),
-            spotsNumber: parseInt(c.spotsNumber.value!),
-            description: c.description.value!,
-            previewImageURL: c.previewImageURL.value!,
-        };
+        const newTrip = new Trip(
+            c.name.value!,
+            c.country.value!,
+            c.startDate.value?.valueOf(),
+            c.endDate.value?.valueOf(),
+            parseFloat(c.unitPrice.value!),
+            parseInt(c.spotsNumber.value!),
+            0,
+            c.description.value!,
+            c.previewImageURL.value!,
+        );
 
         this.newTripEvent.emit(newTrip);
     }
