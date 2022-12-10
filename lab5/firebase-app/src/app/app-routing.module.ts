@@ -7,7 +7,7 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   { path: 'students', component: StudentsListComponent },
   { path: 'add', component: CreateStudentComponent },
-  // { path: '', redirectTo: 'students', pathMatch: 'full' }
+  { path: '', redirectTo: 'students', pathMatch: 'full' }
 ];
 
 @NgModule({
