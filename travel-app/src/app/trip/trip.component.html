@@ -1,12 +1,11 @@
 <div [ngClass]="['trip', (isMostExpensive ? 'most-expensive' : ''), (isCheapest ? 'cheapest' : '')]">
-    <img src="{{ data.previewImageURL }}" class="trip-preview" alt="Preview">
+    <img src="{{ data.images.thumbnailURL }}" class="trip-preview" alt="Preview">
     
     <div class="trip-content-container">
         <div class="trip-title-container f-container">
             <p class="trip-title content">{{ data.name }}</p>
             <p class="trip-country content" matTooltip="Destination country"><mat-icon>location_on</mat-icon> {{ data.country | uppercase }}</p>
         </div>
-        <app-trip-rate [RATING_STARS_NUMBER]="RATING_STARS_NUMBER"></app-trip-rate>
         <div class="trip-date-container f-container">
             <p class="trip-start-date content" matTooltip="Start date"><mat-icon>event</mat-icon> {{ data.startDate | date }}</p>
             <span class="trip-date-separator">―</span>
@@ -20,6 +19,9 @@
             </p>
         </div>
         <p class="trip-description content">{{ data.description }}</p>
+        <a [routerLink]="['..', 'trip', 'details', data.id]">
+            <button mat-raised-button color="primary" class="trip-button">Read more</button>
+        </a>
     </div>
     
     <div class="trip-buttons-container">

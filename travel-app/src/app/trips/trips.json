@@ -1,5 +1,6 @@
 [
     {
+        "id": 0,
         "name": "Exotic trip in Płock Police headquarters",
         "country": "Poland",
         "startDate": 1672614000000,
@@ -8,9 +9,17 @@
         "spotsNumber": 10,
         "purchasedSpotsNumber": 2,
         "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Adipisci accusamus fugit tempora. Veniam cumque illo modi ex, animi eveniet. Sint facere officiis laboriosam a neque omnis nisi nostrum dolore eos?",
-        "previewImageURL": "./assets/images/plock-police-hq.jpg"
+        "images": {
+            "thumbnailURL": "./assets/images/plock-police-hq.jpg",
+            "sliderURLs": [
+                "./assets/images/mountain-hills.jpg",
+                "./assets/images/plock-police-hq.jpg",
+                "./assets/images/mountain-hills.jpg"
+            ]
+        }
     },
     {
+        "id": 1,
         "name": "Mountain hike",
         "country": "United Kingdom",
         "startDate": 1672614000000,
@@ -19,9 +28,17 @@
         "spotsNumber": 10,
         "purchasedSpotsNumber": 0,
         "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Adipisci accusamus fugit tempora. Veniam cumque illo modi ex, animi eveniet. Sint facere officiis laboriosam a neque omnis nisi nostrum dolore eos?",
-        "previewImageURL": "./assets/images/mountain-hills.jpg"
+        "images": {
+            "thumbnailURL": "./assets/images/mountain-hills.jpg",
+            "sliderURLs": [
+                "./assets/images/mountain-hills.jpg",
+                "./assets/images/plock-police-hq.jpg",
+                "./assets/images/mountain-hills.jpg"
+            ]
+        }
     },
     {
+        "id": 2,
         "name": "Exotic trip in Płock Police headquarters",
         "country": "Poland",
         "startDate": 1672614000000,
@@ -30,9 +47,17 @@
         "spotsNumber": 10,
         "purchasedSpotsNumber": 2,
         "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Adipisci accusamus fugit tempora. Veniam cumque illo modi ex, animi eveniet. Sint facere officiis laboriosam a neque omnis nisi nostrum dolore eos?",
-        "previewImageURL": "./assets/images/plock-police-hq.jpg"
+        "images": {
+            "thumbnailURL": "./assets/images/plock-police-hq.jpg",
+            "sliderURLs": [
+                "./assets/images/mountain-hills.jpg",
+                "./assets/images/plock-police-hq.jpg",
+                "./assets/images/mountain-hills.jpg"
+            ]
+        }
     },
     {
+        "id": 3,
         "name": "Exotic trip in Płock Police headquarters",
         "country": "Poland",
         "startDate": 1672614000000,
@@ -41,9 +66,17 @@
         "spotsNumber": 10,
         "purchasedSpotsNumber": 0,
         "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Adipisci accusamus fugit tempora. Veniam cumque illo modi ex, animi eveniet. Sint facere officiis laboriosam a neque omnis nisi nostrum dolore eos?",
-        "previewImageURL": "./assets/images/plock-police-hq.jpg"
+        "images": {
+            "thumbnailURL": "./assets/images/plock-police-hq.jpg",
+            "sliderURLs": [
+                "./assets/images/mountain-hills.jpg",
+                "./assets/images/plock-police-hq.jpg",
+                "./assets/images/mountain-hills.jpg"
+            ]
+        }
     },
     {
+        "id": 4,
         "name": "Mountain hike",
         "country": "Jordan",
         "startDate": 1672614000000,
@@ -52,6 +85,13 @@
         "spotsNumber": 10,
         "purchasedSpotsNumber": 4,
         "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Adipisci accusamus fugit tempora. Veniam cumque illo modi ex, animi eveniet. Sint facere officiis laboriosam a neque omnis nisi nostrum dolore eos?",
-        "previewImageURL": "./assets/images/mountain-hills.jpg"
+        "images": {
+            "thumbnailURL": "./assets/images/mountain-hills.jpg",
+            "sliderURLs": [
+                "./assets/images/mountain-hills.jpg",
+                "./assets/images/plock-police-hq.jpg",
+                "./assets/images/mountain-hills.jpg"
+            ]
+        }
     }
 ]

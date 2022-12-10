@@ -8,8 +8,7 @@ import { Student } from '../student';
   styleUrls: ['./student-details.component.css']
 })
 export class StudentDetailsComponent implements OnInit {
-
-  @Input() student: Student;
+  @Input() student!: Student;
 
   constructor(private studentService: StudentService) { }
 
@@ -17,7 +16,6 @@ export class StudentDetailsComponent implements OnInit {
   }
 
   deleteStudent() {
-
+    this.studentService.deleteStudent(this.student.key);
   }
-
 }

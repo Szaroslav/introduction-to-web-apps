@@ -10,21 +10,20 @@ import { StudentService } from '../../services/student.service';
   styleUrls: ['./create-student.component.css']
 })
 export class CreateStudentComponent implements OnInit {
-
-  customer: Student = new Student();
+  student: Student = new Student();
   submitted = false;
 
-  constructor(private StudentService: StudentService) { }
+  constructor(private studentService: StudentService) { }
 
   ngOnInit() {
   }
 
   newStudent(): void {
     this.submitted = false;
-    this.customer = new Student();
   }
 
   save() {
+    this.student.key = this.student.name.toLocaleLowerCase().replace(/\s/g, '') + Math.floor(Math.random() * 1000);
     this.studentService.createStudent(this.student);
     this.student = new Student();
   }
@@ -33,5 +32,4 @@ export class CreateStudentComponent implements OnInit {
     this.submitted = true;
     this.save();
   }
-
 }

@@ -1,6 +1,7 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Trip } from '../trip/trip';
+import { TripsService } from './../trips/trips.service';
 
 @Component({
     selector: 'app-trip-create',
@@ -8,8 +9,9 @@ import { Trip } from '../trip/trip';
     styleUrls: ['./trip-create.component.scss']
 })
 
-export class TripCreateComponent {
+export class TripCreateComponent implements OnInit {
     @Output() newTripEvent = new EventEmitter<Trip>();
+    private lastId!: number;
 
     createForm = new FormGroup({
         name: new FormControl('', [Validators.required]),
@@ -22,9 +24,16 @@ export class TripCreateComponent {
         previewImageURL: new FormControl('', [Validators.required])
     });
 
+    constructor(private tripsService: TripsService) {}
+
+    ngOnInit(): void {
+        this.tripsService.trips$.subscribe(trips => this.lastId = trips.map(t => t.id).sort()[trips.length - 1]);
+    }
+
     onSubmit(): void {
         const c = this.createForm.controls;
         const newTrip = new Trip(
+            this.lastId + 1,
             c.name.value!,
             c.country.value!,
             c.startDate.value?.valueOf(),
@@ -33,7 +42,7 @@ export class TripCreateComponent {
             parseInt(c.spotsNumber.value!),
             0,
             c.description.value!,
-            c.previewImageURL.value!,
+            {thumbnailURL: c.previewImageURL.value!, sliderURLs: [c.previewImageURL.value!]},
         );
 
         this.newTripEvent.emit(newTrip);

@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "wdai-lab-5": {
+      "hosting": {
+        "firebase-app": [
+          "wdai-lab-5"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "wdai-lab-5"
+  }
+}

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { StudentService } from '../../services/student.service';
 import { map } from 'rxjs/operators';
+import { Student } from '../student';
 
 @Component({
   selector: 'app-student-list',
@@ -9,20 +10,19 @@ import { map } from 'rxjs/operators';
 })
 export class StudentsListComponent implements OnInit {
 
-  students: any;
+  students: Student[] = [];
 
-  constructor(private studentService: StudentService) { }
+  constructor(private studentService: StudentService) {}
 
   ngOnInit() {
-
+    this.getStudentsList();
   }
 
   getStudentsList() {
- 
+    this.studentService.students$.subscribe(students => this.students = students);
   }
 
   deleteStudents() {
-
+    this.studentService.deleteAll();
   }
-
 }

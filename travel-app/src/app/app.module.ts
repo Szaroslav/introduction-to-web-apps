@@ -4,6 +4,7 @@ import { HttpClientJsonpModule, HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SwiperModule } from 'swiper/angular';
 
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
@@ -26,6 +27,7 @@ import { TripRateComponent } from './trip-rate/trip-rate.component';
 import { TripsFilterComponent } from './trips-filter/trips-filter.component';
 import { TripsFilterPipe } from './trips-filter.pipe';
 import { CartComponent } from './cart/cart.component';
+import { TripDetailsComponent } from './trip-details/trip-details.component';
 
 
 @NgModule({
@@ -39,7 +41,8 @@ import { CartComponent } from './cart/cart.component';
         TripRateComponent,
         TripsFilterComponent,
         TripsFilterPipe,
-        CartComponent
+        CartComponent,
+        TripDetailsComponent
     ],
 
     imports: [
@@ -49,6 +52,7 @@ import { CartComponent } from './cart/cart.component';
         HttpClientJsonpModule,
         ReactiveFormsModule,
         BrowserAnimationsModule,
+        SwiperModule,
         MatIconModule,
         MatTooltipModule,
         MatButtonModule,

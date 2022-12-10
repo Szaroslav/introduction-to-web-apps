@@ -3,8 +3,9 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 
-import { AngularFireModule } from '@angular/fire';
-import { AngularFirestoreModule} from '@angular/fire/firestore';
+import { AngularFireModule } from '@angular/fire/compat';
+import { provideFirebaseApp, getApp, initializeApp } from '@angular/fire/app';
+import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
 
 import { AppComponent } from './app.component';
@@ -16,17 +17,18 @@ import { CreateStudentComponent } from './students/create-student/create-student
   declarations: [
     AppComponent,
     StudentDetailsComponent,
-    CustomersListComponent,
-    CreateCustomerComponent
+    StudentsListComponent,
+    CreateStudentComponent
   ],
+
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig ),
-    AngularFirestoreModule
+    AngularFireModule.initializeApp(environment.firebase)
   ],
+
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

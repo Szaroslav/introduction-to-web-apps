@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Trip } from './../trip/trip';
-import trips from './trips.json';
+import { TripsService } from './trips.service';
 
 @Component({
     selector: 'app-trips',
@@ -8,17 +8,23 @@ import trips from './trips.json';
     styleUrls: ['./trips.component.scss']
 })
 
-export class TripsComponent {
+export class TripsComponent implements OnInit {
     RATING_STARS_NUMBER = 5;
-    trips: Trip[] = trips;
+    trips: Trip[] = [];
     filters = {countries: [], ratings: [], price: {lowest: null, highest: null}, date: {start: null, end: null}};
     maxUnitPrice = Number.MIN_SAFE_INTEGER;
     minUnitPrice = Number.MAX_SAFE_INTEGER;
 
-    constructor() {
-        const prices = trips.map(trip => trip.unitPrice);
-        this.maxUnitPrice = Math.max(this.maxUnitPrice, ...prices);
-        this.minUnitPrice = Math.min(this.minUnitPrice, ...prices);
+    constructor(private tripsService: TripsService) {}
+
+    ngOnInit(): void {
+        this.tripsService.trips$.subscribe(trips => {
+            this.trips = trips
+
+            const prices = this.trips.map(trip => trip.unitPrice);
+            this.maxUnitPrice = Math.max(this.maxUnitPrice, ...prices);
+            this.minUnitPrice = Math.min(this.minUnitPrice, ...prices);
+        });
     }
 
     deleteTrip(trip: Trip): void {
