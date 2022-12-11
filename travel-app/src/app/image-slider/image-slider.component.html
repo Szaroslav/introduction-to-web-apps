@@ -1,0 +1,11 @@
+<div class="image-slider">
+    <div *ngFor="let url of imageURLs; let i = index" [ngClass]="['image-slide', i === currentIndex ? 'active' : '']" [ngStyle]="{'background-image': 'url(' + url + ')'}"></div>
+    <div class="image-slider-navigation">
+        <button class="image-slider-navigation-previous image-slider-navigation-button" (click)="previous()">
+            <mat-icon>arrow_back_ios_new</mat-icon>
+        </button>
+        <button class="image-slider-navigation-next image-slider-navigation-button" (click)="next()">
+            <mat-icon>arrow_forward_ios</mat-icon>
+        </button>
+    </div>
+</div>

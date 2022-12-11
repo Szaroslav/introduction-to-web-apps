@@ -1,31 +1,37 @@
 <div class="trip-details">
-    <swiper [slidesPerView]="1">
-        <!-- <ng-template [ngFor]="let url in data.images.sliderURLs" swiperSlide>
-            <img src="{{ url }}" class="trip-preview" alt="Preview">
-        </ng-template> -->
-        <ng-template swiperSlide>Slide 1</ng-template>
-      <ng-template swiperSlide>Slide 2</ng-template>
-      <ng-template swiperSlide>Slide 3</ng-template>
-    </swiper>
-    
-    <div class="trip-content-container">
-        <div class="trip-title-container f-container">
-            <p class="trip-title content">{{ data.name }}</p>
-            <p class="trip-country content" matTooltip="Destination country"><mat-icon>location_on</mat-icon> {{ data.country | uppercase }}</p>
+    <app-image-slider [imageURLs]="data.images.sliderURLs"></app-image-slider>
+
+    <div class="trip-details-container container">
+        <div class="trip-content-container">
+            <div class="trip-title-container f-container">
+                <p class="trip-title content">{{ data.name }}</p>
+                <p class="trip-country content" matTooltip="Destination country"><mat-icon>location_on</mat-icon> {{ data.country | uppercase }}</p>
+            </div>
+            <!-- <app-trip-rate [RATING_STARS_NUMBER]="RATING_STARS_NUMBER"></app-trip-rate> -->
+            <div class="trip-date-container f-container">
+                <p class="trip-start-date content" matTooltip="Start date"><mat-icon>event</mat-icon> {{ data.startDate | date }}</p>
+                <span class="trip-date-separator">―</span>
+                <p class="trip-end-date content" matTooltip="End date"><mat-icon>event</mat-icon> {{ data.endDate | date }}</p>
+            </div>
+            <div class="trip-info-container f-container">
+                <p class="trip-unit-price content" matTooltip="Price for 1 person"><mat-icon>payments</mat-icon> {{ data.unitPrice | currency:'GBP' }}</p>
+                <p class="trip-spots-number content" matTooltip="Maximum number of spots"><mat-icon>group</mat-icon> {{ data.spotsNumber }}</p>
+                <p [ngClass]="['trip-spots-reserved', 'content', (data.purchasedSpotsNumber + spotsNumbers.reserved >= 10 ? 'green' : 'red')]"  matTooltip="Reserved number of spots">
+                    <mat-icon>no_accounts</mat-icon> {{ spotsNumbers.reserved }} / {{ spotsNumbers.available }}
+                </p>
+            </div>
+            <p class="trip-description content">{{ data.description }}</p>
+            <a routerLink="../../../trips" mat-raised-button color="primary" class="trip-go-back">Go back</a>
         </div>
-        <!-- <app-trip-rate [RATING_STARS_NUMBER]="RATING_STARS_NUMBER"></app-trip-rate> -->
-        <div class="trip-date-container f-container">
-            <p class="trip-start-date content" matTooltip="Start date"><mat-icon>event</mat-icon> {{ data.startDate | date }}</p>
-            <span class="trip-date-separator">―</span>
-            <p class="trip-end-date content" matTooltip="End date"><mat-icon>event</mat-icon> {{ data.endDate | date }}</p>
+        <div class="trip-buttons-container">
+            <button mat-raised-button color="{{ spotsNumbers.available - spotsNumbers.reserved > 3 ? 'primary' : 'warn' }}" class="trip-button" (click)="book()" disabled="{{ spotsNumbers.reserved < spotsNumbers.available ? false : true }}">
+                <mat-icon>add</mat-icon>
+            </button>
+            <button mat-raised-button color="primary" class="trip-button" (click)="unbook()" disabled="{{ spotsNumbers.reserved > 0 ? false : true }}">
+                <mat-icon>remove</mat-icon>
+            </button>
         </div>
-        <div class="trip-info-container f-container">
-            <p class="trip-unit-price content" matTooltip="Price for 1 person"><mat-icon>payments</mat-icon> {{ data.unitPrice | currency:'GBP' }}</p>
-            <p class="trip-spots-number content" matTooltip="Maximum number of spots"><mat-icon>group</mat-icon> {{ data.spotsNumber }}</p>
-        </div>
-        <p class="trip-description content">{{ data.description }}</p>
-        <a [routerLink]="['..', '..', '..', 'trips']">
-            <button mat-raised-button color="primary" class="trip-button">Go back</button>
-        </a>
     </div>
+
+    <app-trip-rate></app-trip-rate>
 </div>

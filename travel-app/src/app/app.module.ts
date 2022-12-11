@@ -28,6 +28,7 @@ import { TripsFilterComponent } from './trips-filter/trips-filter.component';
 import { TripsFilterPipe } from './trips-filter.pipe';
 import { CartComponent } from './cart/cart.component';
 import { TripDetailsComponent } from './trip-details/trip-details.component';
+import { ImageSliderComponent } from './image-slider/image-slider.component';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { TripDetailsComponent } from './trip-details/trip-details.component';
         TripsFilterComponent,
         TripsFilterPipe,
         CartComponent,
-        TripDetailsComponent
+        TripDetailsComponent,
+        ImageSliderComponent
     ],
 
     imports: [

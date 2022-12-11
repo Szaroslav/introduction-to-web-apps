@@ -16,7 +16,36 @@
                 "./assets/images/plock-police-hq.jpg",
                 "./assets/images/mountain-hills.jpg"
             ]
-        }
+        },
+        "reviews": [
+            {
+                "value": 5,
+                "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Adipisci accusamus fugit tempora. Veniam cumque illo modi ex, animi eveniet. Sint facere officiis laboriosam a neque omnis nisi nostrum dolore eos?",
+                "date": 1672614000000,
+                "user": {
+                    "nickname": "Big Black Crocodile"
+                }
+
+            },
+            {
+                "value": 4,
+                "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Adipisci accusamus fugit tempora. Veniam cumque illo modi ex, animi eveniet. Sint facere officiis laboriosam a neque omnis nisi nostrum dolore eos?",
+                "date": 1672614000000,
+                "user": {
+                    "nickname": "Big Black Crocodile"
+                }
+
+            },
+            {
+                "value": 2,
+                "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Adipisci accusamus fugit tempora. Veniam cumque illo modi ex, animi eveniet. Sint facere officiis laboriosam a neque omnis nisi nostrum dolore eos?",
+                "date": 1672614000000,
+                "user": {
+                    "nickname": "Big Black Crocodile"
+                }
+
+            }
+        ]
     },
     {
         "id": 1,
@@ -35,7 +64,27 @@
                 "./assets/images/plock-police-hq.jpg",
                 "./assets/images/mountain-hills.jpg"
             ]
-        }
+        },
+        "reviews": [
+            {
+                "value": 5,
+                "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Adipisci accusamus fugit tempora. Veniam cumque illo modi ex, animi eveniet. Sint facere officiis laboriosam a neque omnis nisi nostrum dolore eos?",
+                "date": 1672614000000,
+                "user": {
+                    "nickname": "Big Black Crocodile"
+                }
+
+            },
+            {
+                "value": 4,
+                "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Adipisci accusamus fugit tempora. Veniam cumque illo modi ex, animi eveniet. Sint facere officiis laboriosam a neque omnis nisi nostrum dolore eos?",
+                "date": 1672614000000,
+                "user": {
+                    "nickname": "Big Black Crocodile"
+                }
+
+            }
+        ]
     },
     {
         "id": 2,
@@ -54,7 +103,27 @@
                 "./assets/images/plock-police-hq.jpg",
                 "./assets/images/mountain-hills.jpg"
             ]
-        }
+        },
+        "reviews": [
+            {
+                "value": 5,
+                "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Adipisci accusamus fugit tempora. Veniam cumque illo modi ex, animi eveniet. Sint facere officiis laboriosam a neque omnis nisi nostrum dolore eos?",
+                "date": 1672614000000,
+                "user": {
+                    "nickname": "Big Black Crocodile"
+                }
+
+            },
+            {
+                "value": 4,
+                "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Adipisci accusamus fugit tempora. Veniam cumque illo modi ex, animi eveniet. Sint facere officiis laboriosam a neque omnis nisi nostrum dolore eos?",
+                "date": 1672614000000,
+                "user": {
+                    "nickname": "Big Black Crocodile"
+                }
+
+            }
+        ]
     },
     {
         "id": 3,
@@ -73,7 +142,27 @@
                 "./assets/images/plock-police-hq.jpg",
                 "./assets/images/mountain-hills.jpg"
             ]
-        }
+        },
+        "reviews": [
+            {
+                "value": 5,
+                "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Adipisci accusamus fugit tempora. Veniam cumque illo modi ex, animi eveniet. Sint facere officiis laboriosam a neque omnis nisi nostrum dolore eos?",
+                "date": 1672614000000,
+                "user": {
+                    "nickname": "Big Black Crocodile"
+                }
+
+            },
+            {
+                "value": 4,
+                "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Adipisci accusamus fugit tempora. Veniam cumque illo modi ex, animi eveniet. Sint facere officiis laboriosam a neque omnis nisi nostrum dolore eos?",
+                "date": 1672614000000,
+                "user": {
+                    "nickname": "Big Black Crocodile"
+                }
+
+            }
+        ]
     },
     {
         "id": 4,
@@ -92,6 +181,26 @@
                 "./assets/images/plock-police-hq.jpg",
                 "./assets/images/mountain-hills.jpg"
             ]
-        }
+        },
+        "reviews": [
+            {
+                "value": 5,
+                "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Adipisci accusamus fugit tempora. Veniam cumque illo modi ex, animi eveniet. Sint facere officiis laboriosam a neque omnis nisi nostrum dolore eos?",
+                "date": 1672614000000,
+                "user": {
+                    "nickname": "Big Black Crocodile"
+                }
+
+            },
+            {
+                "value": 4,
+                "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Adipisci accusamus fugit tempora. Veniam cumque illo modi ex, animi eveniet. Sint facere officiis laboriosam a neque omnis nisi nostrum dolore eos?",
+                "date": 1672614000000,
+                "user": {
+                    "nickname": "Big Black Crocodile"
+                }
+
+            }
+        ]
     }
 ]

@@ -1,7 +1,6 @@
 <div class="trips">
     <app-trips-filter
         class="trips-filter-container"
-        [RATING_STARS_NUMBER]="RATING_STARS_NUMBER"
         [trips]="trips"
         [price]="{lowest: minUnitPrice, highest: maxUnitPrice}"
         (filterEvent)="onFilter($event)"
@@ -9,13 +8,11 @@
     <div class="trips-container">
         <h3 class="trips-title">Trips</h3>
         <ul class="trips-list">
-            <li *ngFor="let trip of trips | tripsFilter:filters" class="trips-item">
+            <li *ngFor="let trip of trips | tripsFilter:filters; let i = index" class="trips-item">
                 <app-trip
-                    [RATING_STARS_NUMBER]="RATING_STARS_NUMBER"
-                    [data]="trip"
+                    [i]="i"
                     [isMostExpensive]="trip.unitPrice === maxUnitPrice"
                     [isCheapest]="trip.unitPrice === minUnitPrice"
-                    (deleteDataEvent)="deleteTrip($event)"
                 >
                 </app-trip>
             </li>

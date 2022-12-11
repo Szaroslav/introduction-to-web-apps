@@ -20,15 +20,12 @@ export class TripsComponent implements OnInit {
     ngOnInit(): void {
         this.tripsService.trips$.subscribe(trips => {
             this.trips = trips
-
+            
             const prices = this.trips.map(trip => trip.unitPrice);
-            this.maxUnitPrice = Math.max(this.maxUnitPrice, ...prices);
-            this.minUnitPrice = Math.min(this.minUnitPrice, ...prices);
+            this.maxUnitPrice = Math.max(Number.MIN_SAFE_INTEGER, ...prices);
+            this.minUnitPrice = Math.min(Number.MAX_SAFE_INTEGER, ...prices);
+            console.log(this.maxUnitPrice, this.minUnitPrice);
         });
-    }
-
-    deleteTrip(trip: Trip): void {
-        this.trips = this.trips.filter(t => t !== trip);
     }
 
     addTrip(trip: Trip): void {

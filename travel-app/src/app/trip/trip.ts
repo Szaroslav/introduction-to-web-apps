@@ -1,6 +1,13 @@
-interface Images {
+export interface Images {
     thumbnailURL: string,
     sliderURLs: string[]
+}
+
+export interface Review {
+    value: number,
+    description: string,
+    date: number,
+    user: {nickname: string}
 }
 
 export class Trip {
@@ -17,6 +24,14 @@ export class Trip {
         public images: Images = {
             thumbnailURL: '',
             sliderURLs: []
-        }
+        },
+        public reviews: Review[] = []
+    ) {}
+}
+
+export class TripSpots {
+    constructor(
+        public reserved: number = 0,
+        public available: number = 0
     ) {}
 }

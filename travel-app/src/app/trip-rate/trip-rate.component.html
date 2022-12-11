@@ -1,13 +1,39 @@
-<div class="trip-rating">
-    <div class="trip-rating-icons-container" #tripIconsContainer>
-        <mat-icon
-            *ngFor="let _ of stars"
-            class="trip-rating-icon"
-            (mouseover)="onMouseIn($event)"
-            (mouseout)="onMouseOut()"
-            (click)="onClick($event)"
-        >star
-        </mat-icon>
+<form class="trip-rating container" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <p class="trip-rating-title">Review this trip</p>
+    <div class="trip-rating-container">
+        <div class="trip-rating-icons-container" #tripIconsContainer>
+            <mat-icon
+                *ngFor="let _ of stars"
+                class="trip-rating-icon"
+                (mouseover)="onMouseIn($event)"
+                (mouseout)="onMouseOut()"
+                (click)="onClick($event)"
+            >star
+            </mat-icon>
+        </div>
+        <mat-icon class="trip-rating-close" *ngIf="rating > 0" (click)="resetRating()">close</mat-icon>
+        <span *ngIf="form.controls.rating.invalid" class="trip-rating-error mat-mdc-form-field-error mat-mdc-form-field-bottom-align">
+            {{ getErrorMessage(form.controls.rating) }}
+        </span>
     </div>
-    <mat-icon class="trip-rating-close" *ngIf="rating > 0" (click)="reset()">close</mat-icon>
-</div>
+    <input type="hidden" formControlName="rating" required>
+
+    <mat-form-field class="trip-rating-form-field">
+        <mat-label>Your nickname</mat-label>
+        <input matInput formControlName="nickname" required>
+        <mat-error *ngIf="form.controls.nickname.invalid">{{ getErrorMessage(form.controls.nickname) }}</mat-error>
+    </mat-form-field>
+    <mat-form-field class="trip-rating-form-field" appearance="fill">
+        <mat-label>Start date</mat-label>
+        <input matInput [matDatepicker]="pickerStart" formControlName="startDate">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="pickerStart"></mat-datepicker-toggle>
+        <mat-datepicker #pickerStart></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field class="trip-rating-description trip-rating-form-field">
+        <mat-label>Description</mat-label>
+        <textarea matInput formControlName="description" required></textarea>
+        <mat-error *ngIf="form.controls.description.invalid">{{ getErrorMessage(form.controls.description) }}</mat-error>
+    </mat-form-field>
+    <button type="submit" class="trip-rating-submit" mat-raised-button color="primary" [disabled]="form.invalid">Review</button>
+</form>

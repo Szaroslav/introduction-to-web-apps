@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { TripsService } from '../trips/trips.service';
 import { CartService } from './../cart/cart.service';
-import { Trip } from './trip';
+import { Trip, TripSpots } from './trip';
 
 @Component({
     selector: 'app-trip',
@@ -9,32 +10,36 @@ import { Trip } from './trip';
 })
 
 export class TripComponent implements OnInit { 
-    @Input() RATING_STARS_NUMBER!: number;
-    @Input() data!: Trip;
+    data!: Trip;
+    @Input() i!: number;
     @Input() isMostExpensive!: boolean;
     @Input() isCheapest!: boolean;
-    @Output() deleteDataEvent = new EventEmitter<Trip>();
 
-    reservedSpotsNumber: number = 0;
-    availableSpotsNumber!: number;
+    averageReviewValue!: number;
+    spotsNumbers!: TripSpots;
 
-    constructor(private cartService: CartService) {}
+    constructor(private tripsService: TripsService, private cartService: CartService) {}
 
     ngOnInit(): void {
-        this.availableSpotsNumber = this.data.spotsNumber - this.data.purchasedSpotsNumber;
+        this.tripsService.trips$.subscribe(trips => {
+            if (this.i < 0 || this.i >= trips.length)
+                return;
+                
+            this.data = trips[this.i];
+            this.averageReviewValue = this.data.reviews.reduce((acc, review) => acc + review.value, 0) / this.data.reviews.length;
+        });
+        this.tripsService.spotsNumbers$[this.i].subscribe(spots => this.spotsNumbers = spots);
     }
 
     book(): void {
-        this.reservedSpotsNumber = Math.min(this.reservedSpotsNumber + 1, this.availableSpotsNumber);
-        this.cartService.addNewTrip(this.data);
+        this.tripsService.bookTrip(this.i);
     }
 
     unbook(): void {
-        this.reservedSpotsNumber = Math.max(this.reservedSpotsNumber - 1, 0);
-        this.cartService.removeTrip(this.data);
+        this.tripsService.unbookTrip(this.i);
     }
 
     delete(): void {
-        this.deleteDataEvent.emit(this.data);
+        this.tripsService.deleteTrip(this.i);
     }
 }

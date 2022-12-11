@@ -1,9 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import 'swiper/scss';
+
+import SwiperCore, { Pagination } from "swiper";
 
 import { TripsService } from './../trips/trips.service';
-import { Trip } from '../trip/trip';
+import { Trip, TripSpots } from '../trip/trip';
+
+SwiperCore.use([Pagination]);
 
 @Component({
     selector: 'app-trip-details',
@@ -12,14 +15,30 @@ import { Trip } from '../trip/trip';
 })
 
 export class TripDetailsComponent implements OnInit {
+    @Input() i!: number;
+    // @Input() reservedSpotsNumber!: number;
+    // @Output() reservedSpotsNumberChange = new EventEmitter<number>();
+    // @Input() availableSpotsNumber!: number;
+    // @Output() availableSpotsNumberChange = new EventEmitter<number>();
+
     data!: Trip;
+    spotsNumbers!: TripSpots;
 
     constructor(private route: ActivatedRoute, private tripsService: TripsService) {}
 
     ngOnInit(): void {
         this.route.params.subscribe(params => {
-            this.data = this.tripsService.getTrip(parseInt(params['id']));
-            console.log(this.data);
+            this.i = parseInt(params['id']);
+            this.data = this.tripsService.getTrip(this.i);
         });
+        this.tripsService.spotsNumbers$[this.i].subscribe(spots => this.spotsNumbers = spots);
+    }
+
+    book(): void {
+        this.tripsService.bookTrip(this.i);
+    }
+
+    unbook(): void {
+        this.tripsService.unbookTrip(this.i);
     }
 }

@@ -1,8 +1,35 @@
 .trip-rating {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    border-top: 1px solid var(--text-color-5);
     gap: .25em;
-    padding: .25em 0 .75em 0;
+}
+
+.trip-rating-form-field {
+    width: 400px;
+}
+
+.trip-rating-title {
+    color: var(--text-color-2);
+    margin-bottom: 1em;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.trip-rating-error {
+    grid-column: span 2;
+    font-size: .85em;
+}
+
+.trip-rating-container  {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    align-items: start;
+    gap: .25em;
 }
 
 .trip-rating-icons-container {

@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Trip } from '../trip/trip';
+import { ReviewService } from './../services/review.service';
 
 @Component({
     selector: 'app-trips-filter',
@@ -30,8 +31,10 @@ export class TripsFilterComponent implements OnInit {
         }),
     });
 
+    constructor(private reviewService: ReviewService) {}
+
     ngOnInit(): void {
-        this.ratings = Array(this.RATING_STARS_NUMBER)
+        this.ratings = Array(this.reviewService.MAXIMUM_REVIEW_VALUE)
             .fill(0)
             .map((_, i) => (i + 1));
         this.countries = this.trips.map(t => t.country).filter((c, i, countries) => countries.indexOf(c) === i);
