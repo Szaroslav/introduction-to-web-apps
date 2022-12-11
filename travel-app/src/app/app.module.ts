@@ -30,6 +30,7 @@ import { CartComponent } from './cart/cart.component';
 import { TripDetailsComponent } from './trip-details/trip-details.component';
 import { ImageSliderComponent } from './image-slider/image-slider.component';
 import { TripsHistoryComponent } from './trips-history/trips-history.component';
+import { CartCompactComponent } from './cart-compact/cart-compact.component';
 
 
 @NgModule({
@@ -46,7 +47,8 @@ import { TripsHistoryComponent } from './trips-history/trips-history.component';
         CartComponent,
         TripDetailsComponent,
         ImageSliderComponent,
-        TripsHistoryComponent
+        TripsHistoryComponent,
+        CartCompactComponent
     ],
 
     imports: [

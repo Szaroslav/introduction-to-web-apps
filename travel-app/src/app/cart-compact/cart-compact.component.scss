@@ -1,0 +1,17 @@
+.cart-compact {
+    min-width: 256px;
+    padding: 1em;
+    color: var(--text-color-3);
+    background-color: #f0f0f0;
+    position: absolute;
+    right: 0;
+
+    & .cart-title {
+        color: var(--text-color-1);
+    }
+
+     & .cart-empty-message {
+        display: flex;
+        align-items: center;
+     }
+}

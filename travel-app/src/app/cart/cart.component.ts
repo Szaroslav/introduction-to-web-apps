@@ -9,7 +9,7 @@ import { Trip } from './../trip/trip';
 })
 
 export class CartComponent implements OnInit {
-    private trips: Trip[] = [];
+    trips: {tripsNumber: number, data: Trip}[] = [];
 
     constructor(private cartService: CartService) {}
 

@@ -7,18 +7,29 @@ import { Trip } from './../trip/trip';
 })
 
 export class CartService {
-    private trips = new BehaviorSubject<Trip[]>([]);
+    private trips = new BehaviorSubject<{tripsNumber: number, data: Trip}[]>([]);
     trips$ = this.trips.asObservable();
 
     constructor() {}
 
-    addNewTrip(trip: Trip) {
-        this.trips.next(this.trips.getValue().concat(trip));
+    addNewTrip(trip: Trip): void {
+        if (this.trips.getValue().find(t => t.data === trip)) {
+            this.trips.getValue().find(t => t.data === trip)!.tripsNumber++;
+            this.trips.next(this.trips.getValue());
+        }
+        else {
+            this.trips.next(this.trips.getValue().concat({tripsNumber: 1, data: trip}));
+        }
         console.log(this.trips);
     }
 
-    removeTrip(trip: Trip) {
-        this.trips.next(this.trips.getValue().filter(t => t !== trip));
+    removeTrip(trip: Trip): void {
+        if (this.trips.getValue().find(t => t.data === trip)) {
+            this.trips.getValue().find(t => t.data === trip)!.tripsNumber--;
+            if (this.trips.getValue().find(t => t.data === trip)!.tripsNumber <= 0)
+                this.trips.next(this.trips.getValue().filter(t => t.data !== trip));
+        }
+        
         console.log(this.trips);
     }
 }

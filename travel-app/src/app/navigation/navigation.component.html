@@ -14,7 +14,10 @@
         <li class="navigation-item"><a routerLink="trips/history" class="navigation-link item-4" (click)="toggle(navigationButton)">Your trips history</a></li>
     </ul>
     <ul class="navigation-compact-list">
-        <li class="navigation-item"><a routerLink="cart" class="navigation-link"><mat-icon>shopping_cart</mat-icon></a></li>
+        <li class="navigation-item-cart navigation-item">
+            <a routerLink="cart" class="navigation-link"><mat-icon>shopping_cart</mat-icon></a>
+            <app-cart-compact></app-cart-compact>
+        </li>
         <li class="navigation-item"><a routerLink="cart" class="navigation-link"><mat-icon>notifications</mat-icon></a></li>
         <li class="navigation-item"><a routerLink="cart" class="navigation-link"><mat-icon>account_circle</mat-icon></a></li>
     </ul>

@@ -1,0 +1,10 @@
+<div class="cart-compact">
+    <div class="cart-container">
+        <h3 class="cart-title">Shopping cart</h3>
+        <p *ngIf="quantity" class="cart-item-quantity">Quantity: {{ quantity }}</p>
+        <p *ngIf="totalPrice" class="cart-item-total-price">Total price: {{ totalPrice | currency:'GBP' }}</p>
+        <p *ngIf="!(quantity && totalPrice)" class="cart-empty-message">
+            Your cart is empty <mat-icon>sentiment_dissatisfied</mat-icon>
+        </p>
+    </div>
+</div>

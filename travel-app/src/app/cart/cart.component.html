@@ -1,1 +1,31 @@
-<p>cart works!</p>
+<div class="cart">
+    <div class="cart-container container">
+        <h3 class="cart-title">Shopping cart</h3>
+        <ul *ngIf="trips.length" class="cart-list">
+            <li class="cart-item-heading cart-item">
+                <div class="cart-item-image"></div>
+                <div class="cart-item-details">
+                    <p class="details-name">Trip details</p>
+                </div>
+                <p class="cart-item-quantity">Quantity</p>
+                <p class="cart-item-price">Unit price</p>
+                <p class="cart-item-total-price">Total price</p>
+            </li>
+            <li *ngFor="let trip of trips" class="cart-item">
+                <div class="cart-item-image" [ngStyle]="{'background-image': 'url(' + trip.data.images.thumbnailURL + ')'}"></div>
+                <div class="cart-item-details">
+                    <p class="details-name">{{ trip.data.name }}</p>
+                    <p class="details-date">
+                        <mat-icon>event</mat-icon> {{ trip.data.startDate | date }} ― <mat-icon>event</mat-icon> {{ trip.data.endDate | date }}
+                    </p>
+                </div>
+                <p class="cart-item-quantity">{{ trip.tripsNumber }}</p>
+                <p class="cart-item-price">{{ trip.data.unitPrice | currency:'GBP' }}</p>
+                <p class="cart-item-total-price">{{ trip.tripsNumber * trip.data.unitPrice | currency:'GBP' }}</p>
+            </li>
+        </ul>
+        <p *ngIf="trips.length === 0" class="cart-empty-message">
+            Your cart is empty <mat-icon>sentiment_dissatisfied</mat-icon>
+        </p>
+    </div>
+</div>
