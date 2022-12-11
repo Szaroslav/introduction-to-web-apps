@@ -1,18 +1,22 @@
 <nav class="navigation">
     <!-- <p class="logo">Jakub Szaredko</p> -->
-    <ul class="navigation-list">
-        <li class="navigation-item"><a routerLink=""class="navigation-link item-1">Home</a></li>
-        <li class="navigation-item"><a routerLink="trips" class="navigation-link item-2">Trips</a></li>
-        <li class="navigation-item"><a routerLink="trips/create" class="navigation-link item-3">Create new trip</a></li>
-        <li class="navigation-item"><a routerLink="cart" class="navigation-link item-4"><mat-icon>shopping_cart</mat-icon></a></li>
-        <li class="navigation-item"><a routerLink="cart" class="navigation-link item-4"><mat-icon>notifications</mat-icon></a></li>
-        <li class="navigation-item"><a routerLink="cart" class="navigation-link item-4"><mat-icon>account_circle</mat-icon></a></li>
-    </ul>
-    <label class="navigation-button">
+    <button class="navigation-button" (click)="toggle(navigationButton)" #navigationButton>
         <i class="navigation-icon">
             <div class="line"></div>
             <div class="line"></div>
             <div class="line"></div>
         </i>
-    </label>
+    </button>
+    <ul class="navigation-list">
+        <li class="navigation-item"><a routerLink="" class="navigation-link item-1" (click)="toggle(navigationButton)">Home</a></li>
+        <li class="navigation-item"><a routerLink="trips" class="navigation-link item-2" (click)="toggle(navigationButton)">Trips</a></li>
+        <li class="navigation-item"><a routerLink="trips/create" class="navigation-link item-3" (click)="toggle(navigationButton)">Create new trip</a></li>
+        <li class="navigation-item"><a routerLink="trips/history" class="navigation-link item-4" (click)="toggle(navigationButton)">Your trips history</a></li>
+    </ul>
+    <ul class="navigation-compact-list">
+        <li class="navigation-item"><a routerLink="cart" class="navigation-link"><mat-icon>shopping_cart</mat-icon></a></li>
+        <li class="navigation-item"><a routerLink="cart" class="navigation-link"><mat-icon>notifications</mat-icon></a></li>
+        <li class="navigation-item"><a routerLink="cart" class="navigation-link"><mat-icon>account_circle</mat-icon></a></li>
+    </ul>
 </nav>
+<div class="navigation-wrapper"></div>

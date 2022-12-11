@@ -26,7 +26,7 @@ export class TripComponent implements OnInit {
                 return;
                 
             this.data = trips[this.i];
-            this.averageReviewValue = this.data.reviews.reduce((acc, review) => acc + review.value, 0) / this.data.reviews.length;
+            this.averageReviewValue = this.data.reviews.length > 0 ? this.data.reviews.reduce((acc, review) => acc + review.value, 0) / this.data.reviews.length : 0;
         });
         this.tripsService.spotsNumbers$[this.i].subscribe(spots => this.spotsNumbers = spots);
     }

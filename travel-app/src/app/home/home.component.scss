@@ -58,6 +58,7 @@
         position: relative;
 
         .contact-map {
+            display: flex;
             width: 100%;
             min-height: 600px;
             border: none;
@@ -93,6 +94,35 @@
 
         .field-text {
             margin: .25em;
+        }
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .homepage {
+        &-header {
+            & .header-content {
+                width: 100%;
+                margin-left: 0;
+            }
+        }
+
+        &-contact {
+            display: flex;
+            flex-direction: column;
+    
+            .contact-details-wrapper {
+                width: 100%;
+                padding: 0;
+                position: static;
+                transform: translate(0);
+            }
+    
+            .contact-details {
+                width: 100%;
+                margin-left: 0;
+                padding: 2rem 1rem;
+            }
         }
     }
 }

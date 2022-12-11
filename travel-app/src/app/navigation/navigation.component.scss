@@ -1,23 +1,38 @@
 .navigation {
     display: flex;
-    padding: 1.5rem;
+    width: 100%;
+    padding: 1rem;
     color: white;
-    background-color: #242424;
+    background-color: #2e1655;
     justify-content: space-between;
     align-items: center;
+    position: fixed;
+    z-index: 10;
 
-    & &-list {
+    & &-list, & &-compact-list {
+        display: flex;
+        padding: 0;
+        gap: 1rem;
         list-style-type: none;
     }
     
-    & &-list &-link {
+    & &-list &-link, & &-compact-list &-link {
         color: #f0f0f0;
         font-size: 1rem;
         text-decoration: none;
         position: relative;
     }
+
+    & &-compact-list &-link {
+        display: flex;
+    }
     
     & &-button {
+        padding: 0;
+        background-color: transparent;
+        border: none;
+        outline: none;
+        appearance: none;
         cursor: pointer;
     }
     
@@ -60,6 +75,10 @@
     text-transform: uppercase;
 }
 
+.navigation-wrapper {
+    height: 96px;
+}
+
 @media screen and (max-width: 800px) {
     .navigation {
         & &-list {
@@ -68,14 +87,15 @@
             visibility: hidden;
             width: 100%;
             height: calc(100vh - 82px);
+            margin: 0;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             font-size: 1.25rem;
-            background-color: #323232;
+            background-color: #1e162a;
             gap: 1.5rem;
             position: absolute;
-            top: 82px;
+            top: 84px;
             left: 0;
             transition: opacity .3s ease, visibility .3s ease;
         }
@@ -91,61 +111,46 @@
             visibility: hidden;
             transform: translateY(-.5rem);
             transition: opacity .25s ease, visibility .25s ease, transform .25s ease;
-            transition-delay: 0;
+            transition-delay: 0s;
         }
     
-        #nav-checkbox:checked ~ .nav-list .nav-link {
+        &-button.clicked ~ &-list &-link {
             opacity: 1;
             visibility: visible;
             transform: translateY(0);
         }
-    
-        #nav-checkbox:checked ~ .nav-list .nav-link.item-1 {
-            transition-delay: .4s;
-        }
-    
-        #nav-checkbox:checked ~ .nav-list .nav-link.item-2 {
-            transition-delay: .5s;
-        }
-    
-        #nav-checkbox:checked ~ .nav-list .nav-link.item-3 {
-            transition-delay: .6s;
-        }
-    
-        #nav-checkbox:checked ~ .nav-list .nav-link.item-4 {
-            transition-delay: .7s;
-        }
-    
-        #nav-checkbox:checked ~ .nav-list .nav-link.item-5 {
-            transition-delay: .8s;
+
+        @for $i from 1 through 10 {
+            &-button.clicked ~ &-list &-link.item-#{$i} {
+                transition-delay: .3 + ($i / 10) + s;
+            }
         }
         
-        #nav-checkbox:checked ~ .nav-list {
+        &-button.clicked ~ &-list {
             opacity: 1;
             visibility: visible;
         }
     
-        #nav-checkbox:checked ~ .nav-button .line:nth-child(1) {
+        &-button.clicked .line:nth-child(1) {
             transform: rotate(45deg) translate(4px, -4px);
         }
     
-        #nav-checkbox:checked ~ .nav-button .line:nth-child(2) {
+        &-button.clicked .line:nth-child(2) {
             transform: scaleX(0);
         }
     
-        #nav-checkbox:checked ~ .nav-button .line:nth-child(3) {
+        &-button.clicked .line:nth-child(3) {
             transform: rotate(-45deg) translate(4px, 4px);
         }
+    }
+
+    .navigation-wrapper {
+        height: 84px;
     }
 }
 
 @media screen and (min-width: 801px) {
-    .navigation {
-        & &-list {
-            display: flex;
-            gap: 1rem;
-        }
-        
+    .navigation {      
         & &-list &-link {
             display: block;
             padding: .5rem;

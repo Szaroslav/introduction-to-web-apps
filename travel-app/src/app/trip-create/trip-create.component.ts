@@ -43,8 +43,9 @@ export class TripCreateComponent implements OnInit {
             0,
             c.description.value!,
             {thumbnailURL: c.previewImageURL.value!, sliderURLs: [c.previewImageURL.value!]},
+            []
         );
 
-        this.newTripEvent.emit(newTrip);
+        this.tripsService.addTrip(newTrip);
     }
 }

@@ -50,6 +50,12 @@ export class TripsService {
         this.cartService.removeTrip(this.trips.getValue()[idx]);
     }
 
+    addTrip(trip: Trip): void {
+        this.trips.next(this.trips.getValue().concat(trip));
+        this.spotsNumbers.push(new BehaviorSubject<TripSpots>(new TripSpots(0, trip.spotsNumber - trip.purchasedSpotsNumber)));
+        this.spotsNumbers$.push(this.spotsNumbers[this.spotsNumbers.length - 1].asObservable());
+    }
+
     deleteTrip(idx: number): void {
         if (idx < 0 || idx >= this.trips.getValue().length)
             return;
