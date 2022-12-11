@@ -1,7 +1,8 @@
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { Trip, TripSpots, Review } from '../trip/trip';
 import { CartService } from './../cart/cart.service';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 import trips from './trips.json';
 
 @Injectable({
@@ -9,26 +10,30 @@ import trips from './trips.json';
 })
 
 export class TripsService {
-    private trips = new BehaviorSubject<Trip[]>(trips);
-    trips$ = this.trips.asObservable();
+    private trips!: Trip[];
+    trips$!: Observable<Trip[]>;
+    // trips$ = this.trips.asObservable();
     private spotsNumbers = Array(trips.length).fill(0).map((_, i) => new BehaviorSubject<TripSpots>(new TripSpots(0, trips[i].spotsNumber - trips[i].purchasedSpotsNumber)));
     spotsNumbers$ = this.spotsNumbers.map(s => s.asObservable());
 
-    constructor(private cartService: CartService) {}
+    constructor(private firestore: AngularFirestore,private cartService: CartService) {
+        this.trips$ = this.firestore.collection<Trip>('trips').valueChanges();
+        this.trips$.subscribe(trips => this.trips = trips);
+    }
 
     getTrip(idx: number): Trip {
-        return idx >= 0 && idx < this.trips.getValue().length ? this.trips.getValue()[idx] : new Trip();
+        return idx >= 0 && idx < this.trips.length ? this.trips[idx] : new Trip();
     }
 
     getTripsLength() {
-        return this.trips.getValue().length;
+        return this.trips.length;
     }
 
     setTrip(idx: number, newTrip: Trip): void {
-        if (idx < 0 || idx >= this.trips.getValue().length)
+        if (idx < 0 || idx >= this.trips.length)
             return;
 
-        this.trips.getValue()[idx] = newTrip;
+        this.trips[idx] = newTrip;
         this.trips.next(this.trips.getValue());
     }
 

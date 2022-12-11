@@ -101,6 +101,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "travel-app:build:production",
+            "firebaseProject": "wdai-travel-application",
+            "firebaseHostingSite": "wdai-travel-application"
+          }
         }
       }
     }

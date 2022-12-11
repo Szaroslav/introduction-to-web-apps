@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "wdai-travel-application": {
+      "hosting": {
+        "travel-app": [
+          "wdai-travel-application"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "wdai-travel-application"
+  }
+}
