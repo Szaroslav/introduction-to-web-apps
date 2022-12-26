@@ -1,7 +1,22 @@
-const express = require('express');
-const app = express();
-const tripsRouter = require('./routes/trips');
+require('dotenv').config({ path: './config.env' });
 
+const express = require('express');
+const bodyParser = require('body-parser')
+const tripsRouter = require('./routes/trips');
+const dbo = require('./database/conn');
+
+const app = express();
+const PORT = process.env.PORT || 2137;
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 app.use('/trips', tripsRouter);
 
-app.listen(3000);
+dbo.connectToServer(function (err) {
+    if (err) {
+        console.log(err);
+        process.exit();
+    }
+
+    app.listen(PORT);
+});
