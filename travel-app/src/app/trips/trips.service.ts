@@ -2,38 +2,45 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { Trip, TripSpots, Review } from '../trip/trip';
 import { CartService } from './../cart/cart.service';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
-import trips from './trips.json';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
     providedIn: 'root'
 })
 
 export class TripsService {
-    private trips!: Trip[];
-    trips$!: Observable<Trip[]>;
-    // trips$ = this.trips.asObservable();
-    private spotsNumbers = Array(trips.length).fill(0).map((_, i) => new BehaviorSubject<TripSpots>(new TripSpots(0, trips[i].spotsNumber - trips[i].purchasedSpotsNumber)));
-    spotsNumbers$ = this.spotsNumbers.map(s => s.asObservable());
+    private TRIPS_API_URL = 'api/trips'
 
-    constructor(private firestore: AngularFirestore,private cartService: CartService) {
-        this.trips$ = this.firestore.collection<Trip>('trips').valueChanges();
-        this.trips$.subscribe(trips => this.trips = trips);
+    private trips = new BehaviorSubject<Trip[]>([]);
+    trips$ = this.trips.asObservable();
+    private spotsNumbers: BehaviorSubject<TripSpots>[] = [];
+    spotsNumbers$: Observable<TripSpots>[] = [];
+
+    constructor(private http: HttpClient, private cartService: CartService) {}
+
+    getTrips(): void {
+        this.http.get<Trip[]>(this.TRIPS_API_URL).subscribe(data => {
+            this.trips.next(data);
+            this.spotsNumbers = Array(this.trips.getValue().length)
+                .fill(0)
+                .map((_, i) => new BehaviorSubject<TripSpots>(new TripSpots(0, this.trips.getValue()[i].spotsNumber - this.trips.getValue()[i].purchasedSpotsNumber)));
+            this.spotsNumbers$ = this.spotsNumbers.map(s => s.asObservable());
+        });
     }
 
     getTrip(idx: number): Trip {
-        return idx >= 0 && idx < this.trips.length ? this.trips[idx] : new Trip();
+        return idx >= 0 && idx < this.trips.getValue().length ? this.trips.getValue()[idx] : new Trip();
     }
 
     getTripsLength() {
-        return this.trips.length;
+        return this.trips.getValue().length;
     }
 
     setTrip(idx: number, newTrip: Trip): void {
-        if (idx < 0 || idx >= this.trips.length)
+        if (idx < 0 || idx >= this.trips.getValue().length)
             return;
 
-        this.trips[idx] = newTrip;
+        this.trips.getValue()[idx] = newTrip;
         this.trips.next(this.trips.getValue());
     }
 

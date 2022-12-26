@@ -2,9 +2,6 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientJsonpModule, HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
-import { AngularFireModule } from '@angular/fire/compat';
-import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
-import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -61,9 +58,6 @@ import { CartCompactComponent } from './cart-compact/cart-compact.component';
         HttpClientModule,
         HttpClientJsonpModule,
         ReactiveFormsModule,
-        AngularFireModule.initializeApp(environment.firebase),
-        provideFirebaseApp(() => initializeApp(environment.firebase)),
-        provideFirestore(() => getFirestore()),
         BrowserAnimationsModule,
         MatIconModule,
         MatTooltipModule,

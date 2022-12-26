@@ -1,0 +1,10 @@
+{
+    "/api/trips": {
+      "target": "http://localhost:2137/trips",
+      "secure": true,
+      "pathRewrite": {
+      "^/api/trips": ""
+    },
+      "changeOrigin": true
+    }
+  }

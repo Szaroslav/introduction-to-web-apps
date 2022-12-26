@@ -18,13 +18,14 @@ export class TripsComponent implements OnInit {
     constructor(private tripsService: TripsService) {}
 
     ngOnInit(): void {
+        this.tripsService.getTrips();
+
         this.tripsService.trips$.subscribe(trips => {
             this.trips = trips
             
             const prices = this.trips.map(trip => trip.unitPrice);
             this.maxUnitPrice = Math.max(Number.MIN_SAFE_INTEGER, ...prices);
             this.minUnitPrice = Math.min(Number.MAX_SAFE_INTEGER, ...prices);
-            console.log(this.maxUnitPrice, this.minUnitPrice);
         });
     }
 

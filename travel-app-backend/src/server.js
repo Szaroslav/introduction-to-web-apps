@@ -1,7 +1,8 @@
 require('dotenv').config({ path: './config.env' });
 
 const express = require('express');
-const bodyParser = require('body-parser')
+const bodyParser = require('body-parser');
+const cors = require('cors');
 const tripsRouter = require('./routes/trips');
 const dbo = require('./database/conn');
 
