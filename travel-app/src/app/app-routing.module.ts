@@ -2,10 +2,10 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { HomeComponent } from './home/home.component';
-import { TripsComponent } from './trips/trips.component';
-import { TripCreateComponent } from './trip-create/trip-create.component';
-import { TripsHistoryComponent } from './trips-history/trips-history.component';
-import { TripDetailsComponent } from './trip-details/trip-details.component';
+import { TripsComponent } from './trips/trips/trips.component';
+import { TripCreateComponent } from './trips/trip-create/trip-create.component';
+import { TripsHistoryComponent } from './trips/trips-history/trips-history.component';
+import { TripDetailsComponent } from './trips/trip-details/trip-details.component';
 import { CartComponent } from './cart/cart.component';
 
 const routes: Routes = [

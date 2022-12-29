@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Trip } from '../trip/trip';
-import { ReviewService } from './../services/review.service';
+import { ReviewService } from '../../services/review.service';
 
 @Component({
     selector: 'app-trips-filter',

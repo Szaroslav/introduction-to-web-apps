@@ -70,12 +70,10 @@ router.post('/:id', (req, res) => {
     const { id } = req.params;
 
     db.collection('Trips').updateOne({ id: parseInt(id) }, { $set: newTrip }, (err, _) => {
-        if (err) {
+        if (err)
             res.status(400).send('Error updating trip!');
-        } 
-        else {
+        else
             res.status(204).send();
-        }
     })
 });
 
@@ -86,6 +84,8 @@ router.delete('/:id', (req, res) => {
     db.collection('Trips').deleteOne({ id: parseInt(id) }, (err, _) => {
         if (err)
             res.status(400).send(`Error deleting trip with id ${id}!`);
+        else
+            res.status(204).send();
     });
 });
 

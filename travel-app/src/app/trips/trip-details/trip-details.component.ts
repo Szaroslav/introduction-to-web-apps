@@ -16,10 +16,6 @@ SwiperCore.use([Pagination]);
 
 export class TripDetailsComponent implements OnInit {
     @Input() i!: number;
-    // @Input() reservedSpotsNumber!: number;
-    // @Output() reservedSpotsNumberChange = new EventEmitter<number>();
-    // @Input() availableSpotsNumber!: number;
-    // @Output() availableSpotsNumberChange = new EventEmitter<number>();
 
     data!: Trip;
     spotsNumbers!: TripSpots;

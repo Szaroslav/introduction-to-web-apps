@@ -1,16 +1,16 @@
-require('dotenv').config({ path: './config.env' });
+require('dotenv').config();
 
 const express = require('express');
-const bodyParser = require('body-parser');
-const cors = require('cors');
+const authRouter = require('./routes/auth');
 const tripsRouter = require('./routes/trips');
 const dbo = require('./database/conn');
 
 const app = express();
 const PORT = process.env.PORT || 2137;
 
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+app.use(express.json());
+
+app.use('/auth', authRouter);
 app.use('/trips', tripsRouter);
 
 dbo.connectToServer(function (err) {
@@ -18,6 +18,6 @@ dbo.connectToServer(function (err) {
         console.log(err);
         process.exit();
     }
-
+    
     app.listen(PORT);
 });

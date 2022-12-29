@@ -19,7 +19,9 @@
             <app-cart-compact></app-cart-compact>
         </li>
         <li class="navigation-item"><a routerLink="cart" class="navigation-link"><mat-icon>notifications</mat-icon></a></li>
-        <li class="navigation-item"><a routerLink="cart" class="navigation-link"><mat-icon>account_circle</mat-icon></a></li>
+        <li *ngIf="!isAuthenticated()" class="navigation-item"><a routerLink="account/login" class="navigation-link">Sign in</a></li>
+        <li *ngIf="!isAuthenticated()" class="navigation-item"><a routerLink="account/register" class="navigation-link">Sign up</a></li>
+        <li *ngIf="isAuthenticated()" class="navigation-item"><a routerLink="cart" class="navigation-link"><mat-icon>account_circle</mat-icon></a></li>
     </ul>
 </nav>
 <div class="navigation-wrapper"></div>

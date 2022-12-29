@@ -1,7 +1,7 @@
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { Trip, TripSpots, Review } from '../trip/trip';
-import { CartService } from './../cart/cart.service';
+import { CartService } from '../../cart/cart.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
@@ -21,7 +21,7 @@ export class TripsService {
     getTrips(): void {
         this.http.get<Trip[]>(this.TRIPS_API_URL).subscribe(data => {
             this.trips.next(data);
-            this.spotsNumbers = Array(this.trips.getValue().length)
+            this.spotsNumbers = Array(this.getTripsLength())
                 .fill(0)
                 .map((_, i) => new BehaviorSubject<TripSpots>(new TripSpots(0, this.trips.getValue()[i].spotsNumber - this.trips.getValue()[i].purchasedSpotsNumber)));
             this.spotsNumbers$ = this.spotsNumbers.map(s => s.asObservable());
@@ -29,23 +29,23 @@ export class TripsService {
     }
 
     getTrip(idx: number): Trip {
-        return idx >= 0 && idx < this.trips.getValue().length ? this.trips.getValue()[idx] : new Trip();
+        return idx >= 0 && idx < this.getTripsLength() ? this.trips.getValue()[idx] : new Trip();
     }
 
     getTripsLength() {
         return this.trips.getValue().length;
     }
 
-    setTrip(idx: number, newTrip: Trip): void {
-        if (idx < 0 || idx >= this.trips.getValue().length)
+    updateTrip(idx: number, newTrip: Trip): void {
+        if (idx < 0 || idx >= this.getTripsLength())
             return;
 
-        this.trips.getValue()[idx] = newTrip;
-        this.trips.next(this.trips.getValue());
+        this.http.post(`${this.TRIPS_API_URL}/${this.trips.getValue()[idx].id}`, newTrip)
+            .subscribe(() => this.getTrips());
     }
 
     bookTrip(idx: number): void {
-        if (idx < 0 || idx >= this.trips.getValue().length)
+        if (idx < 0 || idx >= this.getTripsLength())
             return;
 
         const sn = this.spotsNumbers[idx].getValue();
@@ -54,7 +54,7 @@ export class TripsService {
     }
 
     unbookTrip(idx: number): void {
-        if (idx < 0 || idx >= this.trips.getValue().length)
+        if (idx < 0 || idx >= this.getTripsLength())
             return;
         
         const sn = this.spotsNumbers[idx].getValue();
@@ -63,16 +63,15 @@ export class TripsService {
     }
 
     addTrip(trip: Trip): void {
-        this.trips.next(this.trips.getValue().concat(trip));
-        this.spotsNumbers.push(new BehaviorSubject<TripSpots>(new TripSpots(0, trip.spotsNumber - trip.purchasedSpotsNumber)));
-        this.spotsNumbers$.push(this.spotsNumbers[this.spotsNumbers.length - 1].asObservable());
+        this.http.put(this.TRIPS_API_URL, trip)
+            .subscribe(() => this.getTrips());
     }
 
     deleteTrip(idx: number): void {
-        if (idx < 0 || idx >= this.trips.getValue().length)
+        if (idx < 0 || idx >= this.getTripsLength())
             return;
-
-        this.trips.next(this.trips.getValue().filter((_, i) => i !== idx));
-        this.spotsNumbers = this.spotsNumbers.filter((_, i) => i !== idx);
+        
+        this.http.delete(`${this.TRIPS_API_URL}/${this.trips.getValue()[idx].id}`)
+            .subscribe(() => this.getTrips());
     }
 }

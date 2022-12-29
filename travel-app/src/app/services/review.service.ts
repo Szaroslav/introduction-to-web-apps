@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Review } from './../trip/trip';
-import { TripsService } from './../trips/trips.service';
+import { Review } from '../trips/trip/trip';
+import { TripsService } from '../trips/trips/trips.service';
 
 @Injectable({
     providedIn: 'root'
@@ -17,6 +17,6 @@ export class ReviewService {
 
         const t = this.tripsService.getTrip(idx);
         t.reviews.push(review);
-        this.tripsService.setTrip(idx, t);
+        this.tripsService.updateTrip(idx, t);
     }
 }

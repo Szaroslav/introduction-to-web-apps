@@ -2,7 +2,7 @@ import { ActivatedRoute } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Review } from '../trip/trip';
-import { ReviewService } from './../services/review.service';
+import { ReviewService } from '../../services/review.service';
 
 @Component({
     selector: 'app-trip-rate',

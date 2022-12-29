@@ -27,7 +27,7 @@ export class TripCreateComponent implements OnInit {
     constructor(private tripsService: TripsService) {}
 
     ngOnInit(): void {
-        this.tripsService.trips$.subscribe(trips => this.lastId = trips.map(t => t.id).sort()[trips.length - 1]);
+        this.tripsService.trips$.subscribe(trips => {this.lastId = trips.map(t => t.id).sort()[trips.length - 1]; this.lastId});
     }
 
     onSubmit(): void {

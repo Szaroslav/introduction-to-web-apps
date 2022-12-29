@@ -1,11 +1,10 @@
+import { AuthenticationModule } from './authentication/authentication.module';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientJsonpModule, HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-import { environment } from '../environments/environment';
 
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
@@ -21,16 +20,16 @@ import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { HomeComponent } from './home/home.component';
-import { TripComponent } from './trip/trip.component';
-import { TripsComponent } from './trips/trips.component';
-import { TripCreateComponent } from './trip-create/trip-create.component';
-import { TripRateComponent } from './trip-rate/trip-rate.component';
-import { TripsFilterComponent } from './trips-filter/trips-filter.component';
+import { TripComponent } from './trips/trip/trip.component';
+import { TripsComponent } from './trips/trips/trips.component';
+import { TripCreateComponent } from './trips/trip-create/trip-create.component';
+import { TripRateComponent } from './trips/trip-rate/trip-rate.component';
+import { TripsFilterComponent } from './trips/trips-filter/trips-filter.component';
 import { TripsFilterPipe } from './trips-filter.pipe';
 import { CartComponent } from './cart/cart.component';
-import { TripDetailsComponent } from './trip-details/trip-details.component';
+import { TripDetailsComponent } from './trips/trip-details/trip-details.component';
 import { ImageSliderComponent } from './image-slider/image-slider.component';
-import { TripsHistoryComponent } from './trips-history/trips-history.component';
+import { TripsHistoryComponent } from './trips/trips-history/trips-history.component';
 import { CartCompactComponent } from './cart-compact/cart-compact.component';
 
 
@@ -53,6 +52,7 @@ import { CartCompactComponent } from './cart-compact/cart-compact.component';
     ],
 
     imports: [
+        AuthenticationModule,
         BrowserModule,
         AppRoutingModule,
         HttpClientModule,
