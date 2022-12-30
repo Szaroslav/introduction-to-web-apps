@@ -1,7 +1,8 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Trip, TripSpots } from './trip';
 import { TripsService } from '../trips/trips.service';
 import { CartService } from '../../cart/cart.service';
-import { Trip, TripSpots } from './trip';
+import { AuthService } from './../../account/authentication/auth.service';
 
 @Component({
     selector: 'app-trip',
@@ -18,7 +19,7 @@ export class TripComponent implements OnInit {
     averageReviewValue!: number;
     spotsNumbers!: TripSpots;
 
-    constructor(private tripsService: TripsService, private cartService: CartService) {}
+    constructor(private tripsService: TripsService, private cartService: CartService, private authService: AuthService) {}
 
     ngOnInit(): void {
         this.tripsService.trips$.subscribe(trips => {
@@ -41,5 +42,13 @@ export class TripComponent implements OnInit {
 
     delete(): void {
         this.tripsService.deleteTrip(this.i);
+    }
+
+    isAuthenticated(): boolean {
+        return this.authService.isAuthenticated();
+    }
+
+    getPermissionsLevel(): string | null {
+        return this.authService.permissionsLevel;
     }
 }

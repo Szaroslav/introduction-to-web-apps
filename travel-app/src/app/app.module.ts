@@ -1,6 +1,6 @@
-import { AuthenticationModule } from './authentication/authentication.module';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
+import { AccountModule } from './account/account.module';
 import { HttpClientJsonpModule, HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -31,6 +31,7 @@ import { TripDetailsComponent } from './trips/trip-details/trip-details.componen
 import { ImageSliderComponent } from './image-slider/image-slider.component';
 import { TripsHistoryComponent } from './trips/trips-history/trips-history.component';
 import { CartCompactComponent } from './cart-compact/cart-compact.component';
+import { DashboardComponent } from './account/dashboard/dashboard.component';
 
 
 @NgModule({
@@ -48,11 +49,12 @@ import { CartCompactComponent } from './cart-compact/cart-compact.component';
         TripDetailsComponent,
         ImageSliderComponent,
         TripsHistoryComponent,
-        CartCompactComponent
+        CartCompactComponent,
+        DashboardComponent
     ],
 
     imports: [
-        AuthenticationModule,
+        AccountModule,
         BrowserModule,
         AppRoutingModule,
         HttpClientModule,

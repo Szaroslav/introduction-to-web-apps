@@ -10,8 +10,16 @@
     <ul class="navigation-list">
         <li class="navigation-item"><a routerLink="" class="navigation-link item-1" (click)="toggle(navigationButton)">Home</a></li>
         <li class="navigation-item"><a routerLink="trips" class="navigation-link item-2" (click)="toggle(navigationButton)">Trips</a></li>
-        <li class="navigation-item"><a routerLink="trips/create" class="navigation-link item-3" (click)="toggle(navigationButton)">Create new trip</a></li>
+        <li *ngIf="getPermissionsLevel() === 'TRIPS_MANAGER'" class="navigation-item">
+            <a routerLink="trips/create" class="navigation-link item-3" (click)="toggle(navigationButton)">Create new trip</a>
+        </li>
         <li class="navigation-item"><a routerLink="trips/history" class="navigation-link item-4" (click)="toggle(navigationButton)">Your trips history</a></li>
+        <li *ngIf="isAuthenticated() && getPermissionsLevel() === 'ADMINISTRATOR'" class="navigation-item">
+            <a routerLink="account/admin/dashboard" class="navigation-link item-5" (click)="toggle(navigationButton)">Admin panel</a>
+        </li>
+        <li *ngIf="isAuthenticated() && getPermissionsLevel() === 'TRIPS_MANAGER'" class="navigation-item">
+            <a routerLink="account/manager/dashboard" class="navigation-link item-6" (click)="toggle(navigationButton)">Trip managment panel</a>
+        </li>
     </ul>
     <ul class="navigation-compact-list">
         <li class="navigation-item-cart navigation-item">
@@ -21,7 +29,9 @@
         <li class="navigation-item"><a routerLink="cart" class="navigation-link"><mat-icon>notifications</mat-icon></a></li>
         <li *ngIf="!isAuthenticated()" class="navigation-item"><a routerLink="account/login" class="navigation-link">Sign in</a></li>
         <li *ngIf="!isAuthenticated()" class="navigation-item"><a routerLink="account/register" class="navigation-link">Sign up</a></li>
-        <li *ngIf="isAuthenticated()" class="navigation-item"><a routerLink="cart" class="navigation-link"><mat-icon>account_circle</mat-icon></a></li>
+        <li *ngIf="isAuthenticated()" class="navigation-item"><a routerLink="account/dashboard" class="navigation-link">
+            <mat-icon>account_circle</mat-icon><span>{{ getUsername() }}</span>
+        </a></li>
     </ul>
 </nav>
 <div class="navigation-wrapper"></div>

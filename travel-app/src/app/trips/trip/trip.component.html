@@ -18,21 +18,21 @@
         <div class="trip-info-container f-container">
             <p class="trip-unit-price content" matTooltip="Price for 1 person"><mat-icon>payments</mat-icon> {{ data.unitPrice | currency:'GBP' }}</p>
             <p class="trip-spots-number content" matTooltip="Maximum number of spots"><mat-icon>group</mat-icon> {{ data.spotsNumber }}</p>
-            <p [ngClass]="['trip-spots-reserved', 'content', (data.purchasedSpotsNumber + spotsNumbers.reserved >= 10 ? 'green' : 'red')]"  matTooltip="Reserved number of spots">
+            <p *ngIf="isAuthenticated()" [ngClass]="['trip-spots-reserved', 'content', (data.purchasedSpotsNumber + spotsNumbers.reserved >= 10 ? 'green' : 'red')]" matTooltip="Reserved number of spots">
                 <mat-icon>no_accounts</mat-icon> {{ spotsNumbers.reserved }} / {{ spotsNumbers.available }}
             </p>
         </div>
-        <a [routerLink]="['..', 'trip', 'details', i]" mat-raised-button color="primary" class="trip-read-more">Read more</a>
+        <a *ngIf="isAuthenticated()" [routerLink]="['..', 'trip', 'details', i]" mat-raised-button color="primary" class="trip-read-more">Read more</a>
     </div>
     
-    <div class="trip-buttons-container">
+    <div *ngIf="isAuthenticated()" class="trip-buttons-container">
         <button mat-raised-button color="{{ spotsNumbers.available - spotsNumbers.reserved > 3 ? 'primary' : 'warn' }}" class="trip-button" (click)="book()" disabled="{{ spotsNumbers.reserved < spotsNumbers.available ? false : true }}">
             <mat-icon>add</mat-icon>
         </button>
         <button mat-raised-button color="primary" class="trip-button" (click)="unbook()" disabled="{{ spotsNumbers.reserved > 0 ? false : true }}">
             <mat-icon>remove</mat-icon>
         </button>
-        <button mat-raised-button color="warn" class="trip-button" (click)="delete()">
+        <button *ngIf="getPermissionsLevel() === 'TRIPS_MANAGER'" mat-raised-button color="warn" class="trip-button" (click)="delete()">
             <mat-icon>delete_sweep</mat-icon>
         </button>
     </div>
